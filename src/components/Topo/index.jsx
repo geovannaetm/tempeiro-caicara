@@ -15,10 +15,10 @@ export default function Topo() {
             </div>
             <div className={styles.icons}>
                 <Link href="#" className={styles.carrinho}>
-                    <PiBasketFill color="blue" size={24} />
+                    <PiBasketFill color="white"  />
                 </Link>
                 <Link href="#" className={styles.usuario}>
-                    <IoPersonCircleOutline color="blue" size={24} />
+                    <IoPersonCircleOutline color="white"  />
                 </Link>
             </div>
 
@@ -26,7 +26,9 @@ export default function Topo() {
             <div className={styles.subtopo}>
 
                 <Link href="#">Home</Link>
+                <div className={styles.icon_dropdown}>
                 <Link href="#">Cardápio <IoMdArrowDropdown /></Link>
+                </div>
                 <Link href="#">Parcerias</Link>
                 <Link href="#">Sobre Nós</Link>
                 <Link href="#">Trabalhe Conosco</Link>

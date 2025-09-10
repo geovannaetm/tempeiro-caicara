@@ -3,10 +3,11 @@
     top: 0;
     width: 100%;
     padding: 20px;
-
+    margin-bottom: 20px;
     justify-content: space-around;
     align-items: center;
     background-color: #296D8C;
+    
 }
 
 
@@ -26,8 +27,7 @@
 }
 
 .icons {
-    width: 40px;
-    height: 40px;
+    font-size: 25px;
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -43,12 +43,24 @@
 }
 
 .subtopo {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     color: #ffff;
     gap: 25px;
+    font-size: 20px;
+    margin-left: 80px;
 
 
+}
+
+
+.icon_dropdown :global(a) {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: inherit;
 }
