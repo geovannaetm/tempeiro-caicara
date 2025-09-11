@@ -53,9 +53,8 @@
 
 
 
-*,
-*::before,
-*::after {
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -138,13 +137,13 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: hsl(0, 4%, 91%);
+    background-color: hsl(0, 0%, 69%);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: #74a7be;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #fff;
+    background-color: #1d4557;
 }

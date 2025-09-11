@@ -15,9 +15,21 @@ export default function Home() {
 
         <div className={styles.conteudo}>
 
+
+    <span className={`${styles.corner} ${styles.tl}`}></span>
+          <span className={`${styles.corner} ${styles.tr}`}></span>
+          <span className={`${styles.corner} ${styles.bl}`}></span>
+          <span className={`${styles.corner} ${styles.br}`}></span>
+           
+
+
           <div className={styles.titulo_conteudo}>
+
+        
+    
+       
             <h2>Seja bem-vindo ao</h2>
-            <h2>Tempeiro Caiçara</h2>
+            <h1>Tempeiro Caiçara</h1>
             <p>O Tempero Caiçara é mais do que um delivery — somos uma rede que conecta você aos sabores autênticos do Litoral Norte.<br/> oferecemos uma plataforma prática e rápida para pedir comida, mas com um diferencial que é a alma do nosso serviço: valorizamos e promovemos a culinária local caiçara. <br/> Aqui, restaurantes, quiosques, lanchonetes e pequenas empresas da região se cadastram no nosso site e aplicativo para oferecer seus pratos únicos — do peixe fresco a pastel de camarão ao açaí na beira da praia. Tudo com aquele sabor de litoral que a gente ama. <br/> Se é do Litoral Norte, tem que ter Tempero Caiçara!</p>
           </div>
 

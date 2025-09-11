@@ -1,3 +1,58 @@
 .main{
      padding-top: 250px;
+    
+
+  
 }
+
+
+.conteudo{
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+  
+}
+
+/* Bordas pretas nos cantos */
+
+
+.corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.img_bemvindo{
+     width: 300px;
+     height: auto;
+     margin-right: 20px;
+     margin-top: 80px;
+     border-radius: 8px;
+}
+
+
+
+.tr {
+  
+  right: 300px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  
+   
+  
+}
+
+.bl {
+  bottom: 200px;
+ left: 300px;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+
+}
+
+.titulo_conteudo{
+     margin-top: 40px;
+}
+
