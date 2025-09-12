@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inria+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,600;1,14..32,600&family=Itim&family=Joan&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,500&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Sarala:wght@400;700&display=swap');
 /*=============== copyright 2025 Geovanna Emilly, Melissa Alves, Letícia Santos, Melissa Klehm ===============*/
 
 /*-----------------------------------*\
@@ -7,16 +8,35 @@
 :root {
   /*==== colors ====*/
  
-  --white-color: #fff;
-  
+  --cc-azul-principal: #296D8C;
+  --cc-vermelho: #8F2929;
+  --cc-amarelo: #B3920B;
+  --cc-azul-claro: #3B7798;
+  --cc-amarelo-claro: #CFAE24;
+  --cc-verde: #0C7830;
+  --cc-branco: #F2F4F5;
+  --cc-cinza: #B1B4B7;
+  --cc-amarelo-manteiga: #EBC351;
+  --cc-amarelo-escuro: #B37B0E;
+  --cc-subbrando: #F0F0F0;
 
-  /*====cor do texto ====*/
-  --text-white: hsla(0, 0%, 100%, 1);
+
  
  
 
   /*==== tipografia ====*/
   --ff-poppins: "Poppins", sans-serif;
+  --ff-sansita: "Sansita", sans-serif;
+  --ff-inria-sans: "Inria Sans", sans-serif;
+  --ff-roboto-flex: "Roboto Flex", sans-serif;
+  --ff-roboto-condensed: "Roboto Condensed", sans-serif;
+  --ff-crimson-text: "Crimson Text", serif;
+  --ff-inter: "Inter", sans-serif;
+  --ff-joan: "Joan", serif;
+  --ff-itim: "Itim", cursive;
+  --ff-sarala: "Sarala", sans-serif;
+  --ff-josefin-sans: "Josefin Sans", sans-serif;
+  --ff-kaushan-script: "Kaushan Script", cursive;
 
   /*==== Tamanho da fonte ====*/
   --fs-1: 3.6rem;
@@ -123,6 +143,10 @@ body {
 
 button {
     cursor: pointer;
+}
+
+section{
+  scroll-margin-top: 100px;
 }
 
 
