@@ -4,6 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Image_bemvindo from "/public/conteudoprincipal.png";
 import Cardapio from "@/components/Cardapio";
+import { VscVerifiedFilled } from "react-icons/vsc";
+import ParceiroC from '/public/logo_quiosquecanoa.png'
+import ParceiroM from '/public/logo_quiosquemaravista.png'
+import ParceiroA from '/public/logo_quiosquedoadriano.png'
+import ParceiroI from '/public/logo_quiosqueintermares.png'
+
+
+
+import Rodape from "@/components/Rodape";
 
 export default function Home() {
   return (
@@ -13,16 +22,15 @@ export default function Home() {
       <main className={styles.main}>
         <section>
           <div className={styles.conteudo}>
-            <span className={`${styles.corner} ${styles.tl}`}></span>
+
             <span className={`${styles.corner} ${styles.tr}`}></span>
             <span className={`${styles.corner} ${styles.bl}`}></span>
-            <span className={`${styles.corner} ${styles.br}`}></span>
 
             <div className={styles.titulo_conteudo}>
               <h2>Seja bem-vindo ao</h2>
               <h1>Tempeiro Caiçara</h1>
               <p>
-                O Tempero Caiçara é mais do que um delivery — somos uma rede que
+                O <strong>Tempero Caiçara</strong> é mais do que um delivery — somos uma rede que
                 conecta você aos sabores autênticos do Litoral Norte.
                 <br /> oferecemos uma plataforma prática e rápida para pedir
                 comida, mas com um diferencial que é a alma do nosso serviço:
@@ -50,7 +58,115 @@ export default function Home() {
           <Cardapio />
 
         </section>
+
+
+        <section>
+
+          <div className={styles.parceiros}>
+            <h1>CONHEÇA OS NOSSOS PARCEIROS</h1>
+
+            <div className={styles.cadsparceiros}>
+
+              {/*  QUIOSQUE CANOA */}
+
+
+              <Link href="#" >
+              <div className={styles.parceiro}>
+                <span className={styles.verificado}>
+                <VscVerifiedFilled  />
+                </span>
+                <div className={styles.parceirotext_img}>
+                  <Image className={styles.img_quiosque} src={ParceiroC} alt="Quiosque Canoa"  />
+                  <h2>Quiosque Canoa  
+                    <span className={styles.span_parceiros}>lanches</span>
+                  </h2>
+                 
+                </div>
+
+              </div>
+
+              </Link>
+
+              {/*  QUIOSQUE MARAVISTA */}
+
+
+                <Link href="#" >
+                <div className={styles.parceiro}>
+                <span className={styles.verificado}>
+                <VscVerifiedFilled />
+                </span>
+                <div className={styles.parceirotext_img}>
+                  <Image className={styles.img_quiosque} src={ParceiroM} alt="Quiosque Mar a Vista"  />
+                  <h2>Quiosque Mar a Vista  
+                    <span className={styles.span_parceiros}>lanches</span>
+                  </h2>
+                 
+                </div>
+
+              </div>
+                </Link>
+
+
+              {/*  QUIOSQUE DO ADRIANO */}
+
+
+
+              <Link href="#" >
+                <div className={styles.parceiro}>
+
+                 <span className={styles.verificado}>
+                <VscVerifiedFilled />
+                </span>
+                <div className={styles.parceirotext_img}>
+                  <Image className={styles.img_quiosque} src={ParceiroA} alt="Quiosque do Adriano"  />
+                  <h2>Quiosque do Adriano  
+                    <span className={styles.span_parceiros}>lanches</span>
+                  </h2>
+                 
+                </div>
+
+              </div>
+              </Link>
+
+              {/*  QUIOSQUE INTERMARES */}
+
+
+
+              <Link href="#" >
+                <div className={styles.parceiro}>
+
+                 <span className={styles.verificado}>
+                <VscVerifiedFilled />
+                </span>
+
+                <div className={styles.parceirotext_img}>
+                  <Image className={styles.img_quiosque} src={ParceiroI} alt="Quiosque Intermares"  />
+                  <h2>Quiosque Intermares  
+                    <span className={styles.span_parceiros}>lanches</span>
+                  </h2>
+                 
+                </div>
+
+              </div>
+              </Link>
+
+            </div>
+
+          </div>
+
+
+
+
+        </section>
+
       </main>
+
+    <footer>
+
+      <Rodape />
+
+    </footer>
+
     </div>
   );
 }

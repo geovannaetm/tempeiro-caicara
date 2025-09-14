@@ -22,7 +22,7 @@ export default function Cardapio() {
     <div className={styles.cardapio}>
 
       <div className={styles.linha}></div>
-      <h1 className={styles.cardapio_text}>Cardápio</h1>
+      <h1 className={styles.cardapio_text}>CARDÁPIO</h1>
       <div className={styles.linha}></div>
 
     </div>
