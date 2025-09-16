@@ -41,12 +41,18 @@
 
 .titulo_conteudo {
   margin-top: 40px;
+  text-align: left;
+  padding-left: 0;
 }
 
 .titulo_conteudo h2 {
-  font-size: 28px;
+  font-size: 31px;
   font-family: var(--ff-roboto-flex);
   color: #074260;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
+
 }
 
 
@@ -54,15 +60,29 @@
   font-size: 36px;
   font-family: var(--ff-kaushan-script);
   color: var(--cc-vermelho);
+   text-align: left;
 }
 
 .titulo_conteudo p {
-  font-family: var(--ff-roboto-flex) ;
-  font-style: italic;
-  margin: 10px;
-  word-spacing: 5px;
+  font-family: var(--ff-roboto-flex);
+  margin: 10px 10px 10px 0;
+  word-spacing: 2px;
+  padding-left: 0;
   line-height: 2.5;
   font-size: 1.6rem;
+  text-align: left;
+}
+
+.frase_destaque {
+  display: block;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.paragrafo_espaco {
+  margin-top: 20px;
+  display: inline-block;
+  padding-top: 15px;
 }
 
 
