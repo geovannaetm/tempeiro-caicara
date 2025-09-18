@@ -1,0 +1,226 @@
+/* 🔹 Sessão inteira em azul */
+.section {
+    width: 100%;
+    background-color: #256580;
+    /* azul */
+    padding: 60px 20px;
+    /* espaço interno */
+    margin-top: 200px;
+
+}
+
+/* 🔹 Conteúdo centralizado dentro da sessão */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+    max-width: 1200px;
+    /* largura máxima */
+    margin: 0 auto;
+    /* centraliza */
+    color: white;
+}
+
+/* Lado esquerdo */
+.left {
+    flex: 1;
+    color: white;
+}
+
+.left h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-style: var(--ff-sansita);
+}
+
+.subtitle {
+    font-size: 32px;
+    font-weight: 500;
+    font-style: var(--ff-sansita);
+}
+
+.small {
+    font-size: 24px;
+    font-style: var(--ff-roboto-flex);
+    margin-top: 8px;
+}
+
+.button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #d4af37;
+    /* dourado */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #b9972f;
+}
+
+/* Lado direito */
+.right {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    color: black;
+    max-width: 380px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #b22222;
+    /* vermelho */
+    margin-bottom: 20px;
+}
+
+.right label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.right input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.titleWrapper {
+  display: inline-flex;
+  align-items: center; /* centraliza verticalmente */
+  gap: 13px; /* espaço entre ícone e texto */
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8F2929; /* vermelho escuro */
+  line-height: 1.2;    /* garante que o texto fique bem centrado */
+}
+
+.icon {
+  font-size: 28px; /* ligeiramente maior que o texto */
+  color: #8F2929;  /* mesma cor do título */
+   flex-shrink: 0;      /* evita que o ícone seja comprimido em telas muito pequenas */
+}
+
+
+.enter {
+    width: 100%;
+    padding: 12px;
+    background-color: #d4af37;
+    /* dourado */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    transition: 0.3s;
+}
+
+.enter:hover {
+    background-color: #b9972f;
+}
+
+.login {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login a {
+    color: #b22222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+/* 🔹 Responsividade geral até 1024px */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* garante que os itens fiquem centralizados */
+  }
+
+  .left {
+    margin-bottom: 30px;
+  }
+
+  .right {
+    max-width: 100%;
+  }
+}
+
+/* 🔹 Tablets (≤768px) */
+@media (max-width: 768px) {
+  .left h2 {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 24px;
+  }
+
+  .small {
+    font-size: 18px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    align-items: center;
+  }
+
+  .right {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* 🔹 Celulares (≤480px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 15px; /* menos padding pra caber melhor */
+  }
+
+  .left h2 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .small {
+    font-size: 16px;
+  }
+
+  .button {
+    width: 100%; /* botão ocupa a largura toda */
+    font-size: 14px;
+  }
+
+  .right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .titleWrapper {
+    justify-content: center; /* título + ícone centralizados */
+  }
+}

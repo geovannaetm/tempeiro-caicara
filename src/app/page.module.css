@@ -157,3 +157,126 @@
 .parceirotext_img h2 span{
     font-size: 1.5rem;
 }
+
+
+/* ===================== */
+/*  AJUSTES GERAIS       */
+/* ===================== */
+.main {
+  padding-top: 250px;
+}
+.conteudo {
+  max-width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 200px;
+  flex-wrap: wrap;          /* permite quebrar em telas menores */
+}
+.img_bemvindo {
+  width: 320px;
+  height: auto;
+  margin-top: 150px;
+  border-radius: 8px;
+}
+
+/* ===================== */
+/*  DESKTOP MÉDIO <=1024 */
+/* ===================== */
+@media (max-width: 1024px) {
+  .conteudo {
+    padding: 15px;
+    margin-bottom: 120px;
+  }
+  .titulo_conteudo h1 {
+    font-size: 32px;
+  }
+  .titulo_conteudo h2 {
+    font-size: 26px;
+  }
+  .parceiro {
+    margin: 0 30px;
+    width: 260px;
+  }
+}
+
+/* ===================== */
+/*  TABLET <=768         */
+/* ===================== */
+@media (max-width: 768px) {
+  .main {
+    padding-top: 180px;
+  }
+  .conteudo {
+    flex-direction: column;  /* texto em cima, imagem embaixo */
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .img_bemvindo {
+    margin-top: 40px;
+    width: 260px;
+  }
+  .titulo_conteudo {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .titulo_conteudo p {
+    font-size: 1.4rem;
+    line-height: 2;
+  }
+  .cadsparceiros {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .parceiro {
+    width: 240px;
+    margin: 10px;
+  }
+}
+
+/* ===================== */
+/*  CELULAR <=480        */
+/* ===================== */
+@media (max-width: 480px) {
+  .main {
+    padding-top: 140px;
+  }
+  .conteudo {
+    padding: 10px;
+    margin-bottom: 60px;
+  }
+  .titulo_conteudo h1 {
+    font-size: 28px;
+  }
+  .titulo_conteudo h2 {
+    font-size: 22px;
+  }
+  .titulo_conteudo p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  .img_bemvindo {
+    width: 200px;
+    margin-top: 20px;
+  }
+  .cadsparceiros {
+    flex-direction: column;   /* parceiros em coluna */
+    align-items: center;
+  }
+  .parceiro {
+    width: 90%;
+    margin: 15px 0;
+  }
+  .parceirotext_img {
+    flex-direction: column;
+    text-align: center;
+  }
+  .parceirotext_img img {
+    width: 100px;
+  }
+  .parceirotext_img h2 {
+    font-size: 1.6rem;
+  }
+}
