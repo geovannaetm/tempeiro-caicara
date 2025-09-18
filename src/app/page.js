@@ -9,6 +9,7 @@ import ParceiroC from '/public/logo_quiosquecanoa.png'
 import ParceiroM from '/public/logo_quiosquemaravista.png'
 import ParceiroA from '/public/logo_quiosquedoadriano.png'
 import ParceiroI from '/public/logo_quiosqueintermares.png'
+import Trabalharconosco from "@/components/Trabalharconosco"
 
 
 
@@ -158,9 +159,17 @@ export default function Home() {
           </div>
 
 
+        </section>
 
+
+
+        <section>
+
+          <Trabalharconosco />
 
         </section>
+
+
 
       </main>
 
