@@ -33,7 +33,7 @@
 }
 
 .bl {
-  bottom: 100px;
+  bottom: 80px;
   left: 300px;
   border-bottom: 2px solid black;
   border-left: 2px solid black;
@@ -159,27 +159,38 @@
 }
 
 
-/* ===================== */
-/*  AJUSTES GERAIS       */
-/* ===================== */
-.main {
-  padding-top: 250px;
+
+/*-----------------------------------*\
+   IMAGE FOOTER
+\*-----------------------------------*/
+
+
+.subrodape{
+  margin-top: 100px;
 }
-.conteudo {
-  max-width: 1200px;
+
+.imgsfooter{
   display: flex;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  margin-bottom: 200px;
-  flex-wrap: wrap;          /* permite quebrar em telas menores */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
-.img_bemvindo {
-  width: 320px;
-  height: auto;
-  margin-top: 150px;
-  border-radius: 8px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ===================== */
 /*  DESKTOP MÉDIO <=1024 */
@@ -199,6 +210,30 @@
     margin: 0 30px;
     width: 260px;
   }
+
+  /* ===================== */
+/*  AJUSTES GERAIS       */
+/* ===================== */
+.main {
+  padding-top: 250px;
+}
+.conteudo {
+  max-width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 200px;
+  flex-wrap: wrap;         
+}
+.img_bemvindo {
+  width: 320px;
+  height: auto;
+  margin-top: 150px;
+  border-radius: 8px;
+}
+
+
 }
 
 /* ===================== */

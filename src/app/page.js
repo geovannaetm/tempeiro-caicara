@@ -10,6 +10,11 @@ import ParceiroM from '/public/logo_quiosquemaravista.png'
 import ParceiroA from '/public/logo_quiosquedoadriano.png'
 import ParceiroI from '/public/logo_quiosqueintermares.png'
 import Trabalharconosco from "@/components/Trabalharconosco"
+import FooterImg1 from "/public/footerimg1.png"
+import FooterImg2 from "/public/footerimg2.png"
+import FooterImg3 from "/public/footerimg3.png"
+import FooterImg4 from "/public/footerimg4.png"
+
 
 
 
@@ -166,6 +171,42 @@ export default function Home() {
         <section>
 
           <Trabalharconosco />
+
+        </section>
+
+
+        <section className={styles.subrodape}>
+
+          <div className={styles.imgsfooter}>
+            <Image
+                className={styles.img_footer}
+                src={FooterImg1}
+                alt="Caraguatatuba"
+                />
+
+             <Image
+                className={styles.img_footer}
+                src={FooterImg2}
+                alt="Caraguatatuba"
+                />
+
+              <Image
+                className={styles.img_footer}
+                src={FooterImg3}
+                alt="Caraguatatuba"
+                />
+
+              <Image
+                className={styles.img_footer}
+                src={FooterImg4}
+                alt="Caraguatatuba"
+                />
+
+            
+          </div>
+
+
+
 
         </section>
 

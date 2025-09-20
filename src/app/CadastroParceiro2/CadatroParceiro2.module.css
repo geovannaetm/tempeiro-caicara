@@ -1,0 +1,60 @@
+.page {
+   padding-top: 250px;
+}
+
+
+.divider {
+  width: 2px;
+  background-color: #ccc;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+
+
+.formContainer {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  gap: 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 1300px;
+  height: auto;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.formSection h2 {
+  margin-bottom: 10px;
+  color: #900;
+}
+
+
+.btnPrincipal, .btnSecundario {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnPrincipal {
+  background-color: #c6a100;
+  color: #fff;
+}
+
+.btnSecundario {
+  background-color: #c6a100;
+  color: #fff;
+}

@@ -1,0 +1,122 @@
+
+.page{
+   
+  min-height: 100vh; /* ocupa a tela inteira */
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Main */
+.main {
+flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 220px;
+  position: relative; 
+  overflow: hidden; 
+}
+
+/* círculo amarelo */
+.yellowCircle {
+  position: absolute;
+  right: -200px;   
+  top: 0;
+  width: 1200px;
+  height: 1200px;
+  background: #d4a017;
+  border-radius: 50%;
+  z-index: 0; /* fica atrás */
+}
+
+.formBox {
+  position: relative;
+  z-index: 1;
+  background: #B1B4B7;
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px;
+  height: auto;
+  right: -200px;
+}
+
+.formBox h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color:var(--cc-vermelho);
+  
+}
+
+.formBox label{
+    font-family: var(--ff-inter);
+}
+
+  .formBox input::placeholder {
+    letter-spacing: 0.1em; 
+    color: #1E1E1E;
+    font-family: var(--ff-inter);
+   
+ } 
+
+
+  .formBox input:is(:hover, :focus) {
+      border: 2px solid #1E1E1E;
+      
+  }
+
+ 
+.formBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formBox input {
+  padding: 8px;
+  border: 2px solid #663636;
+  border-radius: 5px;
+  outline: none;
+  caret-color: var(--cc-vermelho);
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.formBox button {
+  background: #c2a74f;
+  border: none;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginText {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.loginText a {
+  color: #8b1e1e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.textBox {
+  max-width: 400px;
+  text-align: center;
+   z-index: 1;
+}
+
+.textBox h1 {
+  font-size: 24px;
+  color: #8b1e1e;
+}
+
+.textBox p {
+  font-size: 18px;
+  font-style: italic;
+  color: #c0481e;
+}
