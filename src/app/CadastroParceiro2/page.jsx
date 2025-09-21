@@ -23,7 +23,7 @@ export default function Cadastro() {
 
             <label>
               Praia*
-              <select name="praia" required>
+              <select className="custom-select" name="praia" required>
                 <option value="">Selecione</option>
                 <option value="indaiá">Indaiá</option>
                 <option value="Martin">Martin de Sá</option>
@@ -42,7 +42,7 @@ export default function Cadastro() {
             </label>
 
             <span className={styles.aviso}>
-                <FaExclamationCircle />
+                <FaExclamationCircle size={20} color="#8F2929"/>
                  Preencha os dados corretamente 
             </span>
 

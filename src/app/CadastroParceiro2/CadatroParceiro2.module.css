@@ -5,7 +5,7 @@
 
 .divider {
   width: 2px;
-  background-color: #ccc;
+  background-color: #7a7a7a;
 }
 
 .main {
@@ -17,14 +17,14 @@
 
 
 .formContainer {
-  background: #f9f9f9;
+  background: #BDC3CA;
   border-radius: 12px;
   padding: 30px;
   display: flex;
   gap: 40px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  width: 1300px;
-  height: auto;
+  width: 1400px;
+  height: 500px;
 }
 
 .formSection {
@@ -37,11 +37,56 @@
 .formSection h2 {
   margin-bottom: 10px;
   color: #900;
+  font-family: var(--ff-inter);
+  font-size: 3rem;
+}
+
+.formSection label{
+  font-family: var(--ff-inter);
+ 
+}
+
+.formSection input{
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  caret-color: var(--cc-vermelho);
+  background-color: #fff;
+  border-radius: 7px;
 }
 
 
+
+.formContainer select {
+  
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #000000;
+  font-size: 16px;
+  color: #5D5757;                 /* cor do texto */
+  background-color: #FFFFFF;    /* cor de fundo */
+
+  /* Remove a seta padrão */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  
+  padding-right: 40px;
+
+  
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+
+
 .btnPrincipal, .btnSecundario {
-  margin-top: 20px;
+  margin-top: 120px;
   padding: 12px;
   border: none;
   border-radius: 6px;
@@ -50,11 +95,26 @@
 }
 
 .btnPrincipal {
-  background-color: #c6a100;
+
+  background-color: var(--cc-amarelo);
   color: #fff;
 }
 
 .btnSecundario {
-  background-color: #c6a100;
+  background-color: var(--cc-amarelo);
   color: #fff;
+}
+
+
+.aviso{
+  margin-top: 30px;
+  
+  display: flex;
+  align-items: center;  
+  gap: 8px;    
+  font-family: var(--ff-inter);
+  color: #FFFFFF;
+  background-color: var(--cc-amarelo);
+  padding: 5px;
+  border-radius: 5px;
 }
