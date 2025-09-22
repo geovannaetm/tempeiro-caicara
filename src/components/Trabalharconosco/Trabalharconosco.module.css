@@ -33,18 +33,21 @@
     font-weight: bold;
     margin-bottom: 10px;
     font-style: var(--ff-sansita);
+    font-style: normal;
 }
 
 .subtitle {
     font-size: 32px;
     font-weight: 500;
     font-style: var(--ff-sansita);
+    font-style: normal;
 }
 
 .small {
     font-size: 24px;
     font-style: var(--ff-roboto-flex);
     margin-top: 8px;
+    font-style: italic;
 }
 
 .button {
@@ -102,11 +105,12 @@
   margin-bottom: 20px;
 }
 
-.title {
+.title h2{
   font-size: 24px;
   font-weight: bold;
   color: #8F2929; /* vermelho escuro */
   line-height: 1.2;    /* garante que o texto fique bem centrado */
+  font-style: var(--ff-inter);
 }
 
 .icon {
