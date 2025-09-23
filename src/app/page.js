@@ -34,7 +34,7 @@ export default function Home() {
 
             <div className={styles.titulo_conteudo}>
               <h2>Seja bem-vindo ao</h2>
-              <h1>Tempeiro Caiçara</h1>
+              <h1>Tempero Caiçara</h1>
               <p>
                 O <strong>Tempero Caiçara</strong> é mais do que um delivery — somos uma rede que
                 conecta você aos sabores autênticos do Litoral Norte.

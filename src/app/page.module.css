@@ -299,6 +299,20 @@
   .parceirotext_img h2 {
     font-size: 1.2rem;
   }
+.tr {
+  top: 160px;
+  right: 30px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.bl {
+  bottom: 70px;
+  left: 30px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
 }
 
 /* ...existing code... */
@@ -367,11 +381,13 @@
 @media (max-width: 768px) {
   .main {
     padding-top: 180px;
+    padding-bottom: 100px;
   }
   .conteudo {
     flex-direction: column;  /* texto em cima, imagem embaixo */
     align-items: center;
     margin-bottom: 100px;
+    padding: 15px;
   }
   .img_bemvindo {
     margin-top: 40px;

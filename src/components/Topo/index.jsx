@@ -29,9 +29,9 @@ export default function Topo() {
                 <div className={styles.icon_dropdown}>
                 <Link href="#">Cardápio <IoMdArrowDropdown /></Link>
                 </div>
-                <Link href="#">Parcerias</Link>
+                <Link href="#" className={styles.none}>Parcerias</Link>
                 <Link href="#">Sobre Nós</Link>
-                <Link href="#">Trabalhe Conosco</Link>
+                <Link href="#" className={styles.none}>Trabalhe Conosco</Link>
                 <Link href="#">Contato</Link>
 
             </div>
