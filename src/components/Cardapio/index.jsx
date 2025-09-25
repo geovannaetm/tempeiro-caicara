@@ -35,7 +35,7 @@ export default function Cardapio() {
 
         <Link href="#"><Image className={styles.img_cardapio} src={img3} alt="Bebidas" /></Link>
 
-        <Link href="#"><Image className={styles.img_cardapio} src={img4} alt="Peixes" /></Link>
+        <Link href="#"><Image className={styles.img_cardapio} src={img4} alt="Peixes"  /></Link>
 
         <Link href="#"><Image className={styles.img_cardapio} src={img5} alt="Porções" /></Link>
 

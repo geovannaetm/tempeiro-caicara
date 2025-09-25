@@ -32,7 +32,7 @@
     text-shadow: #528aa8 1px 1px 2px;
   }
 
-  .imgs_cardapio{
+ .imgs_cardapio{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +40,7 @@
     margin: 10px 0;
     flex-wrap: wrap;
   }
+  
 
 
   @media (max-width: 480px) {
@@ -53,6 +54,20 @@
       }
       .imgs_cardapio{
        max-width: 100%;
-      
+       flex-wrap: none;
+      height: auto;
       }
+      .cardapio h1{
+        font-size: 1.8rem;
+      }
+  .imgs_cardapio {
+    grid-template-columns: repeat(2, 1fr); /* duas colunas */
+    max-width: 500px;           /* largura máxima para centralizar */
+    margin: 0 auto;             /* centraliza na tela */
+  }
+
+  .imgs_cardapio img {
+    height: 150px;
+    width: 200px;
+  }
   }

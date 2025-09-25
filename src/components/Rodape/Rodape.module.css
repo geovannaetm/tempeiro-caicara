@@ -47,3 +47,34 @@
     padding: 5px;
     margin-left: 10px;
 }
+
+@media (max-width: 480px) {
+    .rodape_info{
+        
+        text-align: center;
+        gap: 20px;
+    }
+
+    .lista{
+        font-size: 1.4rem;
+        padding: 10px;
+        gap: 10px;
+        
+    }
+
+    .redes {
+      font-size: 1.8rem;
+     
+    }
+
+    .rodape_logo p {
+        font-size: 1.4rem;
+    }
+
+    .img_logo{
+        width: 150px;
+        height: auto;
+        padding: 5px;
+        margin-left: 0;
+    }
+}
