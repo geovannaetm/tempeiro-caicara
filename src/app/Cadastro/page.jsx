@@ -36,7 +36,7 @@ export default function Cadastro() {
         </div>
 
         <div className={styles.textBox}>
-          <h1>O TEMPERO DO MAR ESTÁ TE ESPERANDO...</h1>
+          <h1>O TEMPERO DO MAR ESTÁ<br/> TE ESPERANDO...</h1>
           <p>se cadastre já!</p>
         </div>
       </main>

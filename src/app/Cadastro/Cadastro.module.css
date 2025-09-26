@@ -45,6 +45,7 @@ flex: 1;
   text-align: center;
   margin-bottom: 20px;
   color:var(--cc-vermelho);
+  font-family: var(--ff-inter);
   
 }
 
@@ -70,6 +71,12 @@ flex: 1;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.formBox hr {
+  color: #1E1E1E;
+
+
 }
 
 .formBox input {
@@ -105,18 +112,23 @@ flex: 1;
 }
 
 .textBox {
-  max-width: 400px;
+  max-width: 550px;
   text-align: center;
    z-index: 1;
 }
 
 .textBox h1 {
-  font-size: 24px;
+  font-size: 4.5rem;
   color: #8b1e1e;
+  font-family: var(--ff-inria-sans);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
 }
 
 .textBox p {
-  font-size: 18px;
+  font-size: 3rem;
   font-style: italic;
-  color: #c0481e;
+  color: #8b1e1e;
+  font-family: var(--ff-sansita);
+  text-shadow: 2px 2px 4px rgba(63, 63, 63, 0.5)
 }
