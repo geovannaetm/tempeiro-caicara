@@ -25,14 +25,14 @@ export default function Topo() {
 
             <div className={styles.subtopo}>
 
-                <Link href="#">Home</Link>
+                <Link href="#">HOME</Link>
                 <div className={styles.icon_dropdown}>
-                <Link href="#">Cardápio <IoMdArrowDropdown /></Link>
+                <Link href="#">CARDÁPIO <IoMdArrowDropdown /></Link>
                 </div>
-                <Link href="#" className={styles.none}>Parcerias</Link>
-                <Link href="#">Sobre Nós</Link>
-                <Link href="#" className={styles.none}>Trabalhe Conosco</Link>
-                <Link href="#">Contato</Link>
+                <Link href="#" className={styles.none}>PARCERIAS</Link>
+                <Link href="#">SOBRE NÓS</Link>
+                <Link href="#" className={styles.none}>TRABALHE CONOSCO</Link>
+                <Link href="#">CONTATO</Link>
 
             </div>
 

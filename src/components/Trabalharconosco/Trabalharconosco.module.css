@@ -33,7 +33,7 @@
     font-weight: bold;
     margin-bottom: 10px;
     font-style: var(--ff-sansita);
-    font-style: normal;
+    font-style: italic;
 }
 
 .subtitle {
@@ -78,31 +78,46 @@
 }
 
 .title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #b22222;
-    /* vermelho */
-    margin-bottom: 20px;
+   font-size: 22px;
+  font-weight: bold;
+ color: #8F2929;
+  font-family: var(--ff-inter);
+  margin: 0;                  /* remove margens que podem desalinhá-lo */
+  line-height: 1; 
 }
 
 .right label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
+    font-family: var(--ff-inter);
+    color: #8F2929;
 }
 
 .right input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 25px;
     margin-bottom: 20px;
+    outline: none;
 }
+
+.right input::placeholder{
+  font-family: var(--ff-sansita);
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+}
+
+
+
 .titleWrapper {
-  display: inline-flex;
-  align-items: center; /* centraliza verticalmente */
-  gap: 13px; /* espaço entre ícone e texto */
+  display: flex;              /* garante alinhamento horizontal */
+  align-items: center;        /* centraliza verticalmente */
+  gap: 13px;                  /* espaço entre texto e ícone */
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .title h2{
@@ -114,33 +129,37 @@
 }
 
 .icon {
-  font-size: 28px; /* ligeiramente maior que o texto */
-  color: #8F2929;  /* mesma cor do título */
-   flex-shrink: 0;      /* evita que o ícone seja comprimido em telas muito pequenas */
+ font-size: 28px;            /* ligeiramente maior que o texto */
+  color: #8F2929;
+  flex-shrink: 0;             /* evita compressão em telas pequenas */
+  display: inline-block;  /* evita que o ícone seja comprimido em telas muito pequenas */
 }
 
 
 .enter {
     width: 100%;
     padding: 12px;
-    background-color: #d4af37;
+    background-color: #B3920B;
     /* dourado */
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    color: black;
+    color: white;
     transition: 0.3s;
 }
 
 .enter:hover {
-    background-color: #b9972f;
+    background-color: #94792a;
 }
 
 .login {
     margin-top: 15px;
-    font-size: 14px;
-    text-align: center;
+    font-size: 1.6rem;
+    font-family: var( --ff-josefin-sans);
+    display: flex;
+    gap: 10px;
+   justify-content: center;
 }
 
 .login a {
@@ -152,6 +171,10 @@
 .login a:hover {
     text-decoration: underline;
 }
+
+
+
+
 
 /* 🔹 Responsividade geral até 1024px */
 @media (max-width: 1024px) {

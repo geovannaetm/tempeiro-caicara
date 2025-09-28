@@ -1,8 +1,10 @@
-import styles from './Cadastro.module.css'
+import styles from './CadastroLocal.module.css'
 import Link from 'next/link'
 import Topo from '@/components/Topo'
+import { CiLocationOn } from "react-icons/ci";
 
-export default function Cadastro() {
+
+export default function CadastroLocal() {
     return(
 
         <div className={styles.page}>
@@ -15,18 +17,18 @@ export default function Cadastro() {
   <div className={styles.yellowCircle}></div>
 
         <div className={styles.formBox}>
-          <h2>Cadastre-se</h2>
+          <h2>Localização<CiLocationOn style={{ marginLeft: '8px',}} /></h2>
           <form>
-            <label>Nome:</label>
-            <input type="text" placeholder="Digite seu nome:" />
+            <label>Digite seu Bairro:</label>
+            <input type="text" placeholder="Digite o sue bairro:" />
 
-            <label>E-mail:</label>
-            <input type="email" placeholder="Digite seu e-mail:" />
+            <label>Digite sua Rua:</label>
+            <input type="email" placeholder="Digite o seu endereço:" />
 
-            <label>Senha:</label>
-            <input type="password" placeholder="Digite sua senha:" />
+            <label>Digite N°:</label>
+            <input type="password" placeholder="Digite o número da sua Rua:" />
 
-            <button type="submit">Continuar</button>
+            <button type="submit">Finalizar</button>
           </form>
 
           <hr className={styles.hr}></hr>

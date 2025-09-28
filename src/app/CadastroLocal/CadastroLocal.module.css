@@ -138,10 +138,6 @@ flex: 1;
   
 }
 
-.loginText a:hover {
-    text-decoration: underline;
-}
-
 .textBox {
   max-width: 550px;
   text-align: center;
