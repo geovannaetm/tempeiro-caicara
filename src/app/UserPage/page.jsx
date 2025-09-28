@@ -3,6 +3,13 @@ import React, { useState } from "react";
 import styles from "./UserPage.module.css";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
+import { FaBell } from "react-icons/fa";
+import { IoTicket } from "react-icons/io5";
+import { IoCheckmarkCircle } from "react-icons/io5";
+import { FaRegEdit } from "react-icons/fa";
+import { IoExitOutline } from "react-icons/io5";
+import { IoTrash } from "react-icons/io5";
+import { IoRefreshCircleOutline } from "react-icons/io5";
 
 export default function UserPage() {
   // Simulação de dados (futuramente vem do back-end)
@@ -19,7 +26,7 @@ export default function UserPage() {
     descricao: "descrição do pedido...",
     valor: 50.0,
     status: "Pedido a caminho",
-    imagem: "/comida-exemplo.jpg", // substituir pela imagem real
+    imagem: "/pedidocarrinho.png", // substituir pela imagem real
   });
 
   const handleChange = (e) => {
@@ -34,7 +41,7 @@ export default function UserPage() {
         
       {/* Saudação */}
       <h2 className={styles.saudacao}>
-        Olá, <span>{user.nome}</span> <i className={`fas fa-bell ${styles.icone}`}></i>
+        Olá, <span>{user.nome}<FaBell className={styles.icone} /></span>
       </h2>
 
       {/* Meus Pedidos */}
@@ -42,33 +49,49 @@ export default function UserPage() {
         <h3 className={styles.tituloSecao}>Meus Pedidos:</h3>
         <div className={styles.cardPedido}>
           <div className={styles.cardHeader}>
-            <span className={styles.nomePedido}>{pedido.nome}</span>
-            <span className={styles.valorPedido}>R${pedido.valor},00</span>
+            <span className={styles.nomePedido}><IoTicket  style={{ marginRight: '8px', color: '#B49721'}}/>{pedido.nome}</span>
+            
+            <span className={styles.valorPedido}><span className={styles.totalpedido}>Valor do Pedido:</span>R${pedido.valor},00</span>
           </div>
           <div className={styles.cardBody}>
             <img src={pedido.imagem} alt="Pedido" className={styles.imagemPedido} />
             <div className={styles.descricao}>{pedido.descricao}</div>
           </div>
           <div className={styles.cardFooter}>
-            <span className={styles.status}>{pedido.status}</span>
+            <hr></hr>
+            <span className={styles.status}><IoCheckmarkCircle style={{ marginRight: '8px',}}/>{pedido.status}</span>
           </div>
         </div>
       </div>
 
+      <h3 className={styles.tituloSecao}>Alterações:</h3>
+
       {/* Dados do Usuário */}
       <div className={styles.formBox}>
         <div className={styles.formGroup}>
-          <label>Nome:</label>
+          <label>Nome:<FaRegEdit  style={{
+                    textShadowColor: 'rgba(133, 133, 133, 0.75)',
+                    marginLeft: '5px',
+                    color:'#48742C',
+                    }}/></label>
           <input type="text" name="nome" value={user.nome} onChange={handleChange} />
         </div>
 
         <div className={styles.formGroup}>
-          <label>Endereço:</label>
+          <label>Endereço:<FaRegEdit  style={{
+                    textShadowColor: 'rgba(133, 133, 133, 0.75)',
+                    marginLeft: '5px',
+                    color:'#48742C',
+                    }}/></label>
           <input type="text" name="endereco" value={user.endereco} onChange={handleChange} />
         </div>
 
         <div className={styles.formGroup}>
-          <label>E-mail:</label>
+          <label>E-mail:<FaRegEdit  style={{
+                    textShadowColor: 'rgba(133, 133, 133, 0.75)',
+                    marginLeft: '5px',
+                    color:'#48742C',
+                    }}/></label>
           <input type="email" name="email" value={user.email} onChange={handleChange} />
         </div>
 
@@ -82,15 +105,19 @@ export default function UserPage() {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Senha:</label>
+          <label>Senha:<FaRegEdit  style={{
+                    textShadowColor: 'rgba(133, 133, 133, 0.75)',
+                    marginLeft: '5px',
+                    color:'#48742C',
+                    }}/></label>
           <input type="password" name="senha" value={user.senha} onChange={handleChange} />
         </div>
 
         {/* Botões */}
         <div className={styles.botoes}>
-          <button className={styles.sair}>Sair</button>
-          <button className={styles.excluir}>Excluir</button>
-          <button className={styles.salvar}>Salvar Alterações</button>
+          <button className={styles.sair}>Sair<IoExitOutline fontSize={'20px'}/></button>
+          <button className={styles.excluir}>Excluir<IoTrash fontSize={'20px'}/></button>
+          <button className={styles.salvar}>Salvar Alterações<IoRefreshCircleOutline fontSize={'20px'}/></button>
         </div>
       </div>
     </div>
