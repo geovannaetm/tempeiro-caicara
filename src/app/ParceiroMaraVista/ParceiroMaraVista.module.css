@@ -1,24 +1,46 @@
 .container {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 10px;
+}
+
+.img_header {
+  width: 100%; /* ou defina um tamanho fixo: 300px */
+  height: 300px;
+  object-fit: cover; /* mantém o enquadramento bonito */
+  border-radius: 8px; /* cantos arredondados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* sombra suave */
+  filter: brightness(1.1) contrast(1.2); /* melhora luz e contraste */
+  margin-top: 180px;
+  filter: brightness(40%);
+  
 }
 
 /* Header */
 .header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 75px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 15px;
   margin-bottom: 20px;
+  margin-top: 50px;
+  justify-content: center;
 }
 
 .logo {
   border-radius: 50%;
+  justify-content: flex-start;
 }
 
-.status {
-  color: green;
+.namequiosque{
+   margin-right: 700px;
+   gap: 25px;
+}
+.namequiosque h1{
+  font-family: var(--ff-roboto-condensed);
+}
+
+.subname {
   font-weight: bold;
 }
 
@@ -27,20 +49,66 @@
   font-size: 14px;
 }
 
+.horario {
+  background-color: #FBF6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 1.5rem;
+}
+
+.open {
+  display: flex;
+  align-items: center;
+  color: #00B200;
+  font-weight: 600;
+  gap: 4px;
+}
+
+.infohorario {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 /* Destaques */
 .destaques {
   margin-bottom: 30px;
+  max-width: 1400px;
+  height: auto;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: 18px;
+ 
+  
+}
+
+.destaques h2 {
+  font-family: var(--ff-roboto-condensed);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+ 
+  
 }
 
 .carousel {
+  
   display: flex;
   align-items: center;
-  gap: 10px;
+ 
+  justify-content: center;
+ 
 }
 
 .carouselWrapper {
   display: flex;
-  gap: 15px;
+  gap: 85px;
 }
 
 .carouselItem {
@@ -50,6 +118,7 @@
 
 .carouselItem img {
   width: 100%;
+  height: 160px;
   border-radius: 8px;
 }
 
@@ -57,23 +126,38 @@
   display: block;
   font-weight: bold;
   margin-top: 5px;
+  color: #0C7830;
+ 
 }
 
 .arrow {
   background: none;
   border: none;
   cursor: pointer;
+  margin: 20px;
 }
 
 /* Pratos */
 .pratos {
   margin-top: 20px;
+  padding: 40px;
+}
+
+.pratos h2 {
+  background-color: #B37B0E;
+  width: 230px;
+  color: #FFFF;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 2rem;
+  font-family: var(--ff-inter);
+  margin-bottom: 30px;
 }
 
 .pratoCard {
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid #686868;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 12px;
@@ -81,14 +165,19 @@
 }
 
 .pratoCard img {
-  width: 90px;
-  height: 70px;
+  width: 150px;
+  height: auto;
   border-radius: 8px;
+  padding: 10px;
 }
 
 .info {
   flex: 1;
   margin-left: 10px;
+}
+
+.info h3{
+  font-family: var(--ff-inter);
 }
 
 .addBtn {
