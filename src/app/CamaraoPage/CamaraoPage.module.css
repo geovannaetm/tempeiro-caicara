@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 300px; /* altura fixa inicial */
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 250px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* garante que a imagem preencha sem distorcer */
+  display: block;
+}
+
+/* Texto dentro do banner (opcional, caso queira colocar nome Camarão) */
+.bannerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-family: var(--ff-inter);
+  font-style: italic;
+}
+
+
+/* Linha embaixo do texto */
+.bannerText::after {
+  content: "";
+  display: block;
+  width: 100%;        /* largura da linha */
+  height: 2px;       /* espessura */
+  background: white; /* cor da linha */
+  margin: 2px auto 0; /* espaço entre texto e linha */
+  border-radius: 2px;
+}
+
+.quiosque {
+  background: #fff;
+  border-radius: 12px;
+  padding: 65px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  margin-top: 70px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 30px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.infos {
+  margin-left: 30px;
+}
+
+.nomequiosque{
+  font-family: var(--ff-sarala);
+  color: #164F69;
+}
+
+.details {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-family: var(--ff-itim);
+}
+
+.heart {
+  cursor: pointer;
+  color: #e74c3c;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+ 
+}
+
+.carouselWrapper {
+  display: flex;
+  gap: 70px;
+  margin: 0 10px;
+}
+
+.carouselItem {
+  min-width: 250px;
+  max-width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+   font-family: var(--ff-inter);
+  
+ 
+}
+
+
+
+.imgcarosel {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.price {
+  font-weight: bold;
+  color: #28a745;
+}
