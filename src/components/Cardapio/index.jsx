@@ -10,45 +10,38 @@ import img6 from "/public/porcoes2_home.png";
 import img7 from "/public/sorvetes_home.png";
 import img8 from "/public/acai_home.png";
 
-
-
+const sections = [
+  { src: img1, alt: "Prato Feito", label: "Prato Feito" },
+  { src: img2, alt: "Camarão", label: "Camarão" },
+  { src: img3, alt: "Bebidas", label: "Bebidas" },
+  { src: img4, alt: "Peixes", label: "Peixes" },
+  { src: img5, alt: "Porções", label: "Porções" },
+  { src: img6, alt: "Porções", label: "Porções" },
+  { src: img7, alt: "Sorvetes", label: "Sorvetes" },
+  { src: img8, alt: "Açaí", label: "Açaí" },
+];
 
 export default function Cardapio() {
-
   return (
-
     <div className={styles.container}>
+      <div className={styles.cardapio}>
+        <div className={styles.linha}></div>
+        <h1 className={styles.cardapio_text}>CARDÁPIO</h1>
+        <div className={styles.linha}></div>
+      </div>
 
-    <div className={styles.cardapio}>
-
-      <div className={styles.linha}></div>
-      <h1 className={styles.cardapio_text}>CARDÁPIO</h1>
-      <div className={styles.linha}></div>
-
-    </div>
-
-    <div className={styles.imgs_cardapio}>
-        
-        <Link href="#"><Image className={styles.img_cardapio} src={img1} alt="Prato Feito" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img2} alt="Camarão" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img3} alt="Bebidas" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img4} alt="Peixes"  /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img5} alt="Porções" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img6} alt="Porções" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img7} alt="Sorvetes" /></Link>
-
-        <Link href="#"><Image className={styles.img_cardapio} src={img8} alt="Açaí" /></Link>
-
-
-
-    </div>
-
+      <div className={styles.imgs_cardapio}>
+        {sections.map(({ src, alt, label }, index) => (
+          <Link href="#" key={index} className={styles.card_item}>
+            <div className={styles.img_wrapper}>
+              <Image className={styles.img_cardapio} src={src} alt={alt} />
+              <div className={styles.overlay}>
+                <span className={styles.overlay_text}>{label}</span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
