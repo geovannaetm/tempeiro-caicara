@@ -28,8 +28,8 @@ const quiosques = [
     id: 2,
     nome: "Quiosque do Sol",
     logo: "/camaraopagelogo2.png",
-    avaliacao: 4.5,
-    tempo: "50-60 MIN",
+    avaliacao: 4.7,
+    tempo: "40-50 MIN",
     entrega: "Grátis",
     produtos: [
       { id: 1, img: "/destaquesparceiroM.png", title: "Açaí no copo - 400ml", price: "R$ 25,00" },

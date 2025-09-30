@@ -9,11 +9,11 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .modal {
-  background-color: #fff;
+  background-color: #C2C3C4;
   border-radius: 16px;
   width: 95%;
   max-width: 800px;
@@ -29,19 +29,22 @@
   position: absolute;
   top: 12px;
   right: 16px;
-  font-size: 28px;
+  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+   color: #8F2929;
 }
 
 .header {
   font-size: 28px;
-  font-weight: bold;
-  color: #c0392b;
-  text-align: center;
+  font-weight: 800;
+  color: #8F2929;
+  text-align: start;
   margin-bottom: 20px;
+  font-family: var(--ff-inter);
+  font-style: italic;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .content {
@@ -52,8 +55,8 @@
 }
 
 .image {
-  width: 300px;
-  height: auto;
+  width: 200px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -69,32 +72,39 @@
   background-color: #FBF6F6;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 12px;
+  padding: 10px;
   font-size: 1.4rem;
   margin-bottom: 16px;
+  font-family: var(--ff-inter);
+  height: 190px;
+}
+
+.infoBox span{
+  color: #099322;
 }
 
 .infoBox p {
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 .rating {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-size: 1.3rem;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .descricao {
-  font-size: 1.2rem;
-  color: #777;
+  font-size: 1.7rem;
+  color: #3a3a3a;
   margin-bottom: 20px;
+  font-family: var(--ff-inter);
 }
 
 .addButton {
-  background-color: #f1c40f;
-  color: black;
+  background-color: #B3920B;
+  color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 10px;
@@ -105,14 +115,16 @@
 }
 
 .addButton:hover {
-  background-color: #d4ac0d;
+  background-color: #6e5c10;
 }
 
 .total {
   font-size: 16px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 900;
+  color: #0C7830;
   margin-top: 12px;
+  font-family: var(--ff-inter);
+  text-align: center;
 }
 
 @keyframes fadeIn {

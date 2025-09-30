@@ -46,6 +46,11 @@
 
 }
 
+.icons button{
+  all: unset;
+  cursor: pointer;
+}
+
 .subtopo {
     margin-top: 10px;
     display: flex;

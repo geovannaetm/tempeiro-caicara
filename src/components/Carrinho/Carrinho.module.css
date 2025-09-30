@@ -1,0 +1,147 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.show {
+  right: 0;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 420px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2{
+  font-family: var(--ff-josefin-sans);
+  color: #377A9F;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #377A9F;
+ 
+}
+
+.item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: var(--ff-inter);
+}
+
+.imagem {
+  border-radius: 8px;
+  width: 140px;
+  height: auto;
+}
+
+.info {
+  flex: 1;
+}
+
+.nome {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.preco {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 8px;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBtn {
+  background: #3C6889;
+  border: none;
+  border-radius: 10%;
+  padding: 5px;
+  cursor: pointer;
+  
+}
+
+.qtdBtn {
+  background: #3C6889;
+  border: none;
+ border-radius: 10%;
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+ 
+}
+
+.qtd {
+  font-weight: bold;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  margin: 40px 0;
+  font-family: var(--ff-inter);
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #ccc;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #B49721;
+  font-family: var(--ff-josefin-sans);
+}
+
+.subtotal strong{
+  color: #8F2929;
+}
+
+.finalizar {
+  background: #3C6889;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.finalizar:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
