@@ -2,6 +2,7 @@
 
 import styles from './CadatroParceiro2.module.css'
 import Topo from '@/components/Topo'
+import Link from 'next/link';
 import { FaExclamationCircle } from "react-icons/fa";
 
 export default function Cadastro() {
@@ -65,9 +66,11 @@ export default function Cadastro() {
               <input type="text" name="cpfCnpj" placeholder="digite seu CPF ou CNPJ" required />
             </label>
 
+            <Link href="/ParceiroMaraVista" passHref>
             <button type="submit" className={styles.btnPrincipal}>
               Clicar para finalizar
             </button>
+            </Link>
           </div>
         </form>
 

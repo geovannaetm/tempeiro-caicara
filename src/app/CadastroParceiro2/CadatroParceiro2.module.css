@@ -60,7 +60,7 @@
 
 
 .formContainer select {
-  
+  outline: none;
   padding: 5px;
   border-radius: 8px;
   border: 1px solid #000000;

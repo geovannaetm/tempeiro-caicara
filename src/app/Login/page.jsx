@@ -17,29 +17,27 @@ export default function Login() {
   <div className={styles.yellowCircle}></div>
 
         <div className={styles.formBox}>
-          <h2>Localização<CiLocationOn style={{ marginLeft: '8px',}} /></h2>
+          <h2>Login</h2>
           <form>
-            <label>Digite seu Bairro:</label>
-            <input type="text" placeholder="Digite o sue bairro:" />
 
-            <label>Digite sua Rua:</label>
-            <input type="email" placeholder="Digite o seu endereço:" />
+            <label>Entre com seu Email:</label>
+            <input type="email" placeholder="Digite o seu e-mail:" />
 
-            <label>Digite N°:</label>
-            <input type="password" placeholder="Digite o número da sua Rua:" />
+            <label>Senha:</label>
+            <input type="password" placeholder="Digite sua senha:" />
 
             <button type="submit">Finalizar</button>
           </form>
 
           <hr className={styles.hr}></hr>
           <p className={styles.loginText}>
-            Já possui uma conta? <a href="#">Login</a>
+            Não possui uma conta? <a href="Cadastro">Cadastre-Se</a>
           </p>
         </div>
 
         <div className={styles.textBox}>
           <h1>O TEMPERO DO MAR ESTÁ<br/> TE ESPERANDO...</h1>
-          <p>se cadastre já!</p>
+          <p>só falta logar!</p>
         </div>
       </main>
 

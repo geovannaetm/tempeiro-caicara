@@ -31,7 +31,7 @@ export default function Trabalharconosco() {
                     </Link>
 
                     <p className={styles.login}>
-                        Já possui cadastro? <Link href="#">Login</Link>
+                        Já possui cadastro? <Link href="/Login">Login</Link>
                     </p>
                 </div>
             </div>

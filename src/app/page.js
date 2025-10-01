@@ -25,14 +25,14 @@ export default function Home() {
     <div className={styles.page}>
       <Topo />
 
-      <main className={styles.main}>
+      <main className={styles.main} id='bemvindo'>
         <section>
           <div className={styles.conteudo}>
 
             <span className={`${styles.corner} ${styles.tr}`}></span>
             <span className={`${styles.corner} ${styles.bl}`}></span>
 
-            <div className={styles.titulo_conteudo}>
+            <div className={styles.titulo_conteudo } >
               <h2>Seja bem-vindo ao</h2>
               <h1>Tempero Caiçara</h1>
               <p>
@@ -62,14 +62,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id='cardapio'>
          
           <Cardapio />
 
         </section>
 
 
-        <section>
+        <section id='parceiros'>
 
           <div className={styles.parceiros}>
             <h1>CONHEÇA OS NOSSOS PARCEIROS</h1>
@@ -79,7 +79,7 @@ export default function Home() {
               {/*  QUIOSQUE CANOA */}
 
 
-              <Link href="#" >
+              <Link href="/ParceiroMaraVista" >
               <div className={styles.parceiro}>
                 <span className={styles.verificado}>
                 <VscVerifiedFilled  />
@@ -99,7 +99,7 @@ export default function Home() {
               {/*  QUIOSQUE MARAVISTA */}
 
 
-                <Link href="#" >
+                <Link href="/ParceiroMaraVista" >
                 <div className={styles.parceiro}>
                 <span className={styles.verificado}>
                 <VscVerifiedFilled />
@@ -120,7 +120,7 @@ export default function Home() {
 
 
 
-              <Link href="#" >
+              <Link href="/ParceiroMaraVista" >
                 <div className={styles.parceiro}>
 
                  <span className={styles.verificado}>
@@ -141,7 +141,7 @@ export default function Home() {
 
 
 
-              <Link href="#" >
+              <Link href="/ParceiroMaraVista" >
                 <div className={styles.parceiro}>
 
                  <span className={styles.verificado}>
@@ -168,7 +168,7 @@ export default function Home() {
 
 
 
-        <section>
+        <section id='trabalheconosco'>
 
           <Trabalharconosco />
 
@@ -214,7 +214,7 @@ export default function Home() {
 
       </main>
 
-    <footer>
+    <footer id='contato'>
 
       <Rodape />
 

@@ -28,12 +28,15 @@ export default function CadastroLocal() {
             <label>Digite N°:</label>
             <input type="password" placeholder="Digite o número da sua Rua:" />
 
+            <Link href='/UserPage' >
             <button type="submit">Finalizar</button>
+            </Link>
+
           </form>
 
           <hr className={styles.hr}></hr>
           <p className={styles.loginText}>
-            Já possui uma conta? <a href="#">Login</a>
+            Já possui uma conta? <a href="Login">Login</a>
           </p>
         </div>
 

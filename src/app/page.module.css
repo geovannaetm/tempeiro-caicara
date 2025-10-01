@@ -266,6 +266,18 @@
   .main {
     padding-top: 140px;
   }
+
+.tr {
+  right: 50px;
+ 
+}
+
+.bl {
+  bottom: 200px;
+  left: 20px;
+
+}
+
   .conteudo {
     padding: 10px;
     margin-bottom: 60px;
