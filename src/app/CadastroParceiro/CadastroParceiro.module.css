@@ -1,0 +1,181 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+.formBox {
+    position: relative;
+    z-index: 1;
+    background: #B1B4B7;
+    padding: 30px;
+    border-radius: 20px;
+    width: 600px;
+    height: auto;
+    right: -200px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+}
+.cadastro-section { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 40px; 
+    margin-bottom: 60px; 
+}
+
+/*circulo amarelo*/
+.bolinha{
+    position: absolute;
+    left: -250px;   
+    top: 0;
+    width: 1200px;
+    height: 1200px;
+    background: #d4a017;
+    border-radius: 50%;
+    z-index: 0; /* fica atrás */
+    box-shadow: 0 0 15px #d4a017;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 220px;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.yellowCircle {
+  position: absolute;
+  left: -200px;   
+  top: 0;
+  width: 1200px;
+  height: 1200px;
+  background: #d4a017;
+  border-radius: 50%;
+  z-index: 0; /* fica atrás */
+  box-shadow: 0 0 15px #d4a017; 
+}
+
+
+
+.textoLateral { 
+    max-width: 550px;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    
+    }
+
+.textoLateral p {
+ font-size: 3.7rem;
+  color: #8b1e1e;
+  font-family: var(--ff-inria-sans);
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+}
+
+    
+    
+/* Lado direito */
+.right {
+    position: relative;
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    color: black;
+    max-width: 380px;
+    right: -200px;
+    
+}
+
+.title {
+   font-size: 22px;
+  font-weight: bold;
+ color: #8F2929;
+  font-family: var(--ff-inter);
+  margin: 0;                  /* remove margens que podem desalinhá-lo */
+  line-height: 1; 
+}
+
+.right label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-family: var(--ff-inter);
+    color: #8F2929;
+}
+
+.right input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.right input::placeholder{
+  font-family: var(--ff-sansita);
+  font-style: italic;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+}
+
+
+
+.titleWrapper {
+  display: flex;              /* garante alinhamento horizontal */
+  align-items: center;        /* centraliza verticalmente */
+  gap: 13px;                  /* espaço entre texto e ícone */
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.title h2{
+  font-size: 24px;
+  font-weight: bold;
+  color: #8F2929; /* vermelho escuro */
+  line-height: 1.2;    /* garante que o texto fique bem centrado */
+  font-style: var(--ff-inter);
+}
+
+.icon {
+ font-size: 28px;            /* ligeiramente maior que o texto */
+  color: #8F2929;
+  flex-shrink: 0;             /* evita compressão em telas pequenas */
+  display: inline-block;  /* evita que o ícone seja comprimido em telas muito pequenas */
+}
+.enter {
+    width: 100%;
+    padding: 12px;
+    background-color: #B3920B;
+    /* dourado */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+}
+
+.enter:hover {
+    background-color: #94792a;
+}
+
+.login {
+    margin-top: 15px;
+    font-size: 1.6rem;
+    font-family: var( --ff-josefin-sans);
+    display: flex;
+    gap: 10px;
+   justify-content: center;
+}
+
+.login a {
+    color: #b22222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
