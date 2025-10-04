@@ -59,12 +59,23 @@ flex: 1;
 
 
 
-  .formBox input:is(:hover, :focus) {
+  .formBox input:hover {
       border: 2px solid #1E1E1E;
+      box-shadow: 0px 0px 20px -17px;
       
   }
 
- 
+  
+  .formBox input:active {
+  transform: scale(0.95);
+}
+
+  
+  .formBox input:focus {
+  border: 2px solid grey;
+}
+
+
 .formBox form {
   display: flex;
   flex-direction: column;
@@ -83,7 +94,7 @@ flex: 1;
 
 .formBox input {
   padding: 8px;
-  border: 2px solid #663636;
+  border: 1px solid #663636;
   border-radius: 5px;
   outline: none;
   caret-color: var(--cc-vermelho);
@@ -91,6 +102,8 @@ flex: 1;
   border-radius: 15px;
   color: #5D5757;
   font-family: var(--ff-sansita);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
 }
 
 .formBox input::placeholder{
@@ -118,7 +131,23 @@ flex: 1;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+  will-change: box-shadow,transform;
+  background: radial-gradient( 100% 100% at 100% 0%, #EBC351 0%, #B3920B 100% );
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  text-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
+
+.formBox button:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #B3920B;
+  transform: translateY(-0.1em);
+}
+
+.formBox button:active {
+  box-shadow: inset 0px 0.1em 0.6em #B3920B;
+  transform: translateY(0em);
+}
+
 
 .loginText {
   margin-top: 10px;

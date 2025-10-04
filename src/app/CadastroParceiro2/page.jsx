@@ -1,6 +1,6 @@
 "use client"
 
-import styles from './CadatroParceiro2.module.css'
+import styles from './cadastroparceiro2.module.css'
 import Topo from '@/components/Topo'
 import Link from 'next/link';
 import { FaExclamationCircle } from "react-icons/fa";

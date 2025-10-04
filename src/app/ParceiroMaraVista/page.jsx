@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./ParceiroMaraVista.module.css";
+import styles from "./parceiromaravista.module.css";
 import Image from 'next/image'
 import imgHeader from '../../../public/headermaravista.png'
 import Logo from '../../../public/logo_quiosquemaravista.png'

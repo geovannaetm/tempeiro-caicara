@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./UserPage.module.css";
+import styles from "./userpage.module.css";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
 import { FaBell } from "react-icons/fa";

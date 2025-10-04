@@ -1,7 +1,7 @@
 "use client";
 
 import { IoFishOutline } from "react-icons/io5"
-import styles from './CadastroParceiro.module.css'
+import styles from './cadastroparceiro.module.css'
 import { useState } from 'react';
 import Topo from '@/components/Topo'
 import Link from 'next/link';

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { AiFillStar } from "react-icons/ai";
 import { FiHeart } from "react-icons/fi";
-import styles from "./CamaraoPage.module.css";
+import styles from "./camaraopage.module.css";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
 import ModalProduto from "@/components/ModalProduto";

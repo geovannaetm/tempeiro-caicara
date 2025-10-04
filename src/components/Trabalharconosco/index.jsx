@@ -15,7 +15,11 @@ export default function Trabalharconosco() {
                     <p className={styles.small}>
                         Se é do Litoral Norte, tem que ter Tempero Caiçara!
                     </p>
-                    <button className={styles.button}>Clique aqui e cadastre-se!</button>
+                    <Link href='#'>
+                    <button className={styles.button}>
+                        Clique aqui e cadastre-se!
+                    </button>
+                    </Link>
                 </div>
                  {/* Lado Direito */}
                 <div className={styles.right}>
@@ -27,7 +31,9 @@ export default function Trabalharconosco() {
                     <input type="email" placeholder="Digite seu e-mail" />
 
                     <Link href="CadastroParceiro2">
-                    <button className={styles.enter}>Entrar</button>
+                    <button className={styles.enter}>
+                        Entrar
+                    </button>
                     </Link>
 
                     <p className={styles.login}>

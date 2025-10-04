@@ -53,14 +53,15 @@
 .button {
     margin-top: 20px;
     padding: 12px 24px;
-    background-color: #d4af37;
+    background-color: #B3920B;
     /* dourado */
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    color: black;
+    color: white;
     transition: 0.3s;
+    
 }
 
 .button:hover {
@@ -101,6 +102,7 @@
     border-radius: 25px;
     margin-bottom: 20px;
     outline: none;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .right input::placeholder{

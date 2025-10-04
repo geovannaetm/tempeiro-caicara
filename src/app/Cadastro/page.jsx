@@ -1,4 +1,4 @@
-import styles from './Cadastro.module.css'
+import styles from './cadastro.module.css'
 import Link from 'next/link'
 import Topo from '@/components/Topo'
 

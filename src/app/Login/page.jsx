@@ -1,4 +1,4 @@
-import styles from './Login.module.css'
+import styles from './login.module.css'
 import Link from 'next/link'
 import Topo from '@/components/Topo'
 import { CiLocationOn } from "react-icons/ci";

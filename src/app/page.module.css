@@ -24,12 +24,15 @@
   height: auto;
   margin-top: 150px;
   border-radius: 8px;
+  
+  
 }
 
 .tr {
   right: 300px;
   border-top: 2px solid black;
   border-right: 2px solid black;
+  
 }
 
 .bl {
@@ -61,6 +64,7 @@
   font-family: var(--ff-kaushan-script);
   color: var(--cc-vermelho);
    text-align: left;
+   text-shadow: 2px 2px 4px hsl(0, 30%, 64%);
 }
 
 .titulo_conteudo p {
@@ -146,12 +150,14 @@
     width: 120px;
     height: auto; 
     margin: 10px;
+   
 }
 
 .parceirotext_img h2{
     font-family: var(--ff-inria-sans);
     font-size: 2rem;
     color: #953636;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .parceirotext_img h2 span{

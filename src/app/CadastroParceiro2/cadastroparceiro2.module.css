@@ -1,28 +1,32 @@
 .page {
-   padding-top: 250px;
+   padding-top: 100px;
+    background: linear-gradient(to top, #97b8ca, #dfdfdf);
+    flex: 1;
 }
 
 
 .divider {
   width: 2px;
-  background-color: #7a7a7a;
+  background-color: #a7a7a7;
 }
 
 .main {
   display: flex;
   justify-content: center;
   padding: 40px 20px;
+   padding-top: 250px;
+   padding-bottom: 100px;
 }
 
 
 
 .formContainer {
-  background: #BDC3CA;
+   background: linear-gradient(to right, #BDC3CA, #b4c9dd);
   border-radius: 12px;
   padding: 30px;
   display: flex;
   gap: 40px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   width: 1400px;
   height: 500px;
 }
@@ -39,6 +43,7 @@
   color: #900;
   font-family: var(--ff-inter);
   font-size: 3rem;
+   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .formSection label{
@@ -48,13 +53,14 @@
 
 .formSection input{
   background-color: #FFFFFF;
-  border: 1px solid black;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   outline: none;
   caret-color: var(--cc-vermelho);
   background-color: #fff;
   border-radius: 7px;
+   border: 1px solid #8b8b8b;
 }
 
 
@@ -63,10 +69,11 @@
   outline: none;
   padding: 5px;
   border-radius: 8px;
-  border: 1px solid #000000;
+  border: 1px solid #8b8b8b;
   font-size: 16px;
   color: #5D5757;                 /* cor do texto */
   background-color: #FFFFFF;    /* cor de fundo */
+   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 
   /* Remove a seta padrão */
   appearance: none;
@@ -85,6 +92,17 @@
 
 
 
+
+
+.btnPrincipal {
+
+  background-color: var(--cc-amarelo);
+  color: #fff;
+  width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btnPrincipal, .btnSecundario {
   margin-top: 120px;
   padding: 12px;
@@ -92,18 +110,26 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-}
-
-.btnPrincipal {
-
   background-color: var(--cc-amarelo);
   color: #fff;
+  will-change: box-shadow,transform;
+  background: radial-gradient( 100% 100% at 100% 0%, #EBC351 0%, #B3920B 100% );
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  text-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
-.btnSecundario {
-  background-color: var(--cc-amarelo);
-  color: #fff;
+.btnPrincipal, .btnSecundario button:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #B3920B;
+  transform: translateY(-0.1em);
 }
+
+.btnPrincipal, .btnSecundario button:active {
+  box-shadow: inset 0px 0.1em 0.6em #B3920B;
+  transform: translateY(0em);
+}
+
+
 
 
 .aviso{
