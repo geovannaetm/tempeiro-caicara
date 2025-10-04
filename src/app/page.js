@@ -79,7 +79,7 @@ export default function Home() {
               {/*  QUIOSQUE CANOA */}
 
 
-              <Link href="/ParceiroMaraVista" >
+              <Link href="/parceiromaravista" >
               <div className={styles.parceiro}>
                 <span className={styles.verificado}>
                 <VscVerifiedFilled  />
@@ -99,7 +99,7 @@ export default function Home() {
               {/*  QUIOSQUE MARAVISTA */}
 
 
-                <Link href="/ParceiroMaraVista" >
+                <Link href="/parceiromaravista" >
                 <div className={styles.parceiro}>
                 <span className={styles.verificado}>
                 <VscVerifiedFilled />
@@ -120,7 +120,7 @@ export default function Home() {
 
 
 
-              <Link href="/ParceiroMaraVista" >
+              <Link href="/parceiromaravista" >
                 <div className={styles.parceiro}>
 
                  <span className={styles.verificado}>
@@ -141,7 +141,7 @@ export default function Home() {
 
 
 
-              <Link href="/ParceiroMaraVista" >
+              <Link href="/parceiromaravista" >
                 <div className={styles.parceiro}>
 
                  <span className={styles.verificado}>

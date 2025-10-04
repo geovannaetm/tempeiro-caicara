@@ -30,14 +30,14 @@ export default function Trabalharconosco() {
                     <label>Email:</label>
                     <input type="email" placeholder="Digite seu e-mail" />
 
-                    <Link href="CadastroParceiro2">
+                    <Link href='cadastroparceiro2'>
                     <button className={styles.enter}>
                         Entrar
                     </button>
                     </Link>
 
                     <p className={styles.login}>
-                        Já possui cadastro? <Link href="/Login">Login</Link>
+                        Já possui cadastro? <Link href="/login">Login</Link>
                     </p>
                 </div>
             </div>

@@ -31,7 +31,7 @@ export default function Login() {
 
           <hr className={styles.hr}></hr>
           <p className={styles.loginText}>
-            Não possui uma conta? <a href="Cadastro">Cadastre-Se</a>
+            Não possui uma conta? <a href="cadastro">Cadastre-Se</a>
           </p>
         </div>
 

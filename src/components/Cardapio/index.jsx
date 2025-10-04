@@ -32,7 +32,7 @@ export default function Cardapio() {
 
       <div className={styles.imgs_cardapio}>
         {sections.map(({ src, alt, label }, index) => (
-          <Link href='/CamaraoPage' key={index} className={styles.card_item}>
+          <Link href='/camaraopage' key={index} className={styles.card_item}>
             <div className={styles.img_wrapper}>
               <Image className={styles.img_cardapio} src={src} alt={alt} />
               <div className={styles.overlay}>

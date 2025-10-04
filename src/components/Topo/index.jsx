@@ -30,7 +30,7 @@ export default function Topo() {
             <PiBasketFill color="white" />
           </button>
 
-          <Link href="/Cadastro" className={styles.usuario}>
+          <Link href="/cadastro" className={styles.usuario}>
             <IoPersonCircleOutline color="white" />
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function Topo() {
             <Link href="#cardapio">CARDÁPIO <IoMdArrowDropdown /></Link>
           </div>
           <Link href="#parceiros" className={styles.none}>PARCERIAS</Link>
-          <Link href="#">SOBRE NÓS</Link>
+          <Link href="#contato">SOBRE NÓS</Link>
           <Link href="#trabalheconosco" className={styles.none}>TRABALHE CONOSCO</Link>
           <Link href="#contato">CONTATO</Link>
         </div>

@@ -28,7 +28,7 @@ export default function CadastroLocal() {
             <label>Digite N°:</label>
             <input type="password" placeholder="Digite o número da sua Rua:" />
 
-            <Link href='/UserPage' >
+            <Link href='/userpage' >
             <button type="submit">Finalizar</button>
             </Link>
 
@@ -36,7 +36,7 @@ export default function CadastroLocal() {
 
           <hr className={styles.hr}></hr>
           <p className={styles.loginText}>
-            Já possui uma conta? <a href="Login">Login</a>
+            Já possui uma conta? <a href='/login'>Login</a>
           </p>
         </div>
 

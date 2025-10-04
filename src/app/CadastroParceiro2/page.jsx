@@ -66,7 +66,7 @@ export default function Cadastro() {
               <input type="text" name="cpfCnpj" placeholder="digite seu CPF ou CNPJ" required />
             </label>
 
-            <Link href="/ParceiroMaraVista" passHref>
+            <Link href="/parceiromaravista" passHref>
             <button type="submit" className={styles.btnPrincipal}>
               Clicar para finalizar
             </button>

@@ -26,14 +26,14 @@ export default function Cadastro() {
             <label>Senha:</label>
             <input type="password" placeholder="Digite sua senha:" />
 
-            <Link href='/CadastroLocal'>
+            <Link href='/cadastrolocal'>
             <button type="submit">Continuar</button>
             </Link>
           </form>
 
           <hr className={styles.hr}></hr>
           <p className={styles.loginText}>
-            Já possui uma conta? <a href='/Login'>Login</a>
+            Já possui uma conta? <a href='/login'>Login</a>
           </p>
         </div>
 
