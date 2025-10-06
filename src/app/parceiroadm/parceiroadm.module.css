@@ -7,9 +7,11 @@
 /* container principal */
 .container {
   width: 100%;
-  max-width: 1150px;
+  max-width: 1650px;
   margin: 24px auto;
   padding: 0 16px 60px;
+  margin-top: 200px;
+  font-family: var(--ff-inter);
 }
 
 /* card principal */
@@ -127,13 +129,16 @@
   justify-content: center;
 }
 .saveBtn {
-  background: #ff6b00;
+  background-color: #296D8C;
   color: white;
   padding: 10px 14px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   font-weight: 600;
+  font-family: var(--ff-inter);
+  margin-top: 90px;
+ 
 }
 .saveBtn:hover {
   opacity: 0.95;
@@ -143,12 +148,13 @@
 .section {
   padding: 18px;
   border-top: 1px solid #f0f0f0;
+
 }
 
 /* section header */
 .sectionHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 12px;
 }
@@ -171,7 +177,8 @@
 .carouselWrap {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 60px;
 }
 .arrowBtn {
   background: none;
@@ -182,7 +189,7 @@
 }
 .carousel {
   display: flex;
-  gap: 12px;
+  gap: 60px;
   padding: 8px;
   overflow-x: auto;
 }
@@ -263,9 +270,10 @@
 /* insights */
 .insightsRow {
   display: flex;
-  gap: 14px;
+  gap: 50px;
   margin-top: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .insightCard {
   background: linear-gradient(90deg, #fffaf6, #fff3e6);
@@ -312,6 +320,7 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  font-family: var(--ff-inter);
 }
 .modalBox {
   width: 920px;
@@ -387,7 +396,7 @@
   margin-top: 10px;
 }
 .buttonPrimary {
-  background: #ff6b00;
+  background: #296D8C;
   color: #fff;
   border: none;
   padding: 10px 14px;

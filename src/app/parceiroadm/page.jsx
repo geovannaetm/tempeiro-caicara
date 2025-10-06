@@ -7,7 +7,7 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
-
+import { FaRegEdit } from "react-icons/fa";
 /** Helpers */
 const readFileAsDataURL = (file) =>
   new Promise((res, rej) => {
@@ -253,6 +253,7 @@ export default function ParceiroAdm() {
                   console.log("POST /api/estabelecimento ->", JSON.stringify({ nome, descricao, logo: !!logo ? "dataURL" : null, cover: !!cover ? "dataURL" : null }, null, 2));
                 }}
               >
+                <FaRegEdit />
                 Salvar dados
               </button>
             </div>
@@ -261,7 +262,7 @@ export default function ParceiroAdm() {
           {/* Destaques (carrossel editável) */}
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
-              <h3>Destaques (editáveis)</h3>
+              <h3>Destaques</h3>
               <div>
                 <button className={styles.smallBtn} onClick={addDestaque}>
                   + Novo destaque
@@ -338,7 +339,7 @@ export default function ParceiroAdm() {
 
           {/* Insights */}
           <div className={styles.section}>
-            <h3>Insights</h3>
+            <h3>Veja o insight da sua loja</h3>
             <div className={styles.insightsRow}>
               <div className={styles.insightCard}>
                 <p>Pedidos</p>
@@ -422,7 +423,7 @@ export default function ParceiroAdm() {
 
                 <div className={styles.modalActions}>
                   <button type="submit" className={styles.buttonPrimary}>
-                    Salvar prato (POST simulado)
+                    Salvar prato
                   </button>
                   <button type="button" className={styles.buttonGhost} onClick={closeAddPrato}>
                     Cancelar
