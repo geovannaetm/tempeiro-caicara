@@ -26,7 +26,9 @@ export default function Login() {
             <label>Senha:</label>
             <input type="password" placeholder="Digite sua senha:" />
 
+            <Link href='userpage'>
             <button type="submit">Finalizar</button>
+            </Link>
           </form>
 
           <hr className={styles.hr}></hr>

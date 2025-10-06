@@ -18,7 +18,9 @@ export default function Topo() {
     <>
       <div className={styles.header}>
         <div className={styles.topo}>
+          <Link href='/'>
           <Image className={styles.img_logo} src={Logo} alt="Logo" />
+          </Link>
         </div>
 
         <div className={styles.icons}>

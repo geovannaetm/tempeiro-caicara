@@ -106,7 +106,7 @@ function CardQuiosque({ data }) {
             </div>
           </div>
         </div>
-        <FiHeart size={22} className={styles.heart} />
+       
       </div>
 
       <div className={styles.carousel}>

@@ -179,7 +179,7 @@ export default function ParceiroAdm() {
     console.log("POST /api/pratos ->", JSON.stringify(pratoToSave, null, 2));
 
     // feedback + fechar
-    alert("Prato salvo e enviado (simulado). Verifique console.");
+    alert("Prato salvo com sucesso.");
     closeAddPrato();
   };
 
@@ -249,7 +249,7 @@ export default function ParceiroAdm() {
                   localStorage.setItem("adm_desc", descricao);
                   localStorage.setItem("adm_logo", logo);
                   localStorage.setItem("adm_cover", cover);
-                  alert("Dados do estabelecimento salvos (localStorage).");
+                  alert("Dados do estabelecimento salvos .");
                   console.log("POST /api/estabelecimento ->", JSON.stringify({ nome, descricao, logo: !!logo ? "dataURL" : null, cover: !!cover ? "dataURL" : null }, null, 2));
                 }}
               >

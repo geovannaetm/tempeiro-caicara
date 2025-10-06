@@ -160,8 +160,9 @@
 }
 .sectionHeader h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 28px;
   color: #222;
+  letter-spacing: 0.1rem;
 }
 
 /* small button */
@@ -171,6 +172,7 @@
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
+  margin-left: 1250px;
 }
 
 /* carousel area */
@@ -276,12 +278,13 @@
   justify-content: center;
 }
 .insightCard {
-  background: linear-gradient(90deg, #fffaf6, #fff3e6);
-  border: 1px solid #ffe1bf;
+  background: linear-gradient(90deg, #B4B4B4, #d6d5d5);
+  border: 1px solid #7a7a7a;
   padding: 16px;
   border-radius: 12px;
   min-width: 180px;
   text-align: center;
+   color: #a02e2e;
 }
 .addPratoBtn {
   background: #2f9bb1;
@@ -297,7 +300,10 @@
 
 /* simulate row */
 .simRow {
-  margin-top: 12px;
+  margin-top: 32px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 .simBtn {
   background: #6b9e3b;
