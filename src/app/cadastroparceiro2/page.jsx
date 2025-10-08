@@ -62,6 +62,11 @@ export default function Cadastro() {
             </label>
 
             <label>
+              Senha*
+              <input type="password" name="Senha" placeholder="digite sua senha" required />
+            </label>
+
+            <label>
               CPF ou CNPJ*
               <input type="text" name="cpfCnpj" placeholder="digite seu CPF ou CNPJ" required />
             </label>
