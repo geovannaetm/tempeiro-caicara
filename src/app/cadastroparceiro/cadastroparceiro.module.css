@@ -1,181 +1,208 @@
-.page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-}
-.formBox {
-    position: relative;
-    z-index: 1;
-    background: #B1B4B7;
-    padding: 30px;
-    border-radius: 20px;
-    width: 600px;
-    height: auto;
-    right: -200px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
-}
-.cadastro-section { 
-    display: flex; 
-    justify-content: space-between; 
-    gap: 40px; 
-    margin-bottom: 60px; 
+.page {
+  background-color: #f7f7f7;
+  min-height: 100vh;
 }
 
-/*circulo amarelo*/
-.bolinha{
-    position: absolute;
-    left: -250px;   
-    top: 0;
-    width: 1200px;
-    height: 1200px;
-    background: #d4a017;
-    border-radius: 50%;
-    z-index: 0; /* fica atrás */
-    box-shadow: 0 0 15px #d4a017;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 220px;
-    position: relative; 
-    overflow: hidden; 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
 }
 
-.yellowCircle {
-  position: absolute;
-  left: -200px;   
-  top: 0;
-  width: 1200px;
-  height: 1200px;
-  background: #d4a017;
+/* ====== SEÇÃO DE CADASTRO ====== */
+.cadastroSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  padding-right: 120px; /* espaço na direita */
+}
+
+/* BOLINHA — metade esquerda */
+.bolinha {
+ position: absolute;
+  top: 50%;
+  left: -150px;
+  transform: translateY(-50%);
+  width: 1300px;
+  height: 1300px;
+  background-color: #d4a017;
   border-radius: 50%;
-  z-index: 0; /* fica atrás */
-  box-shadow: 0 0 15px #d4a017; 
+  z-index: 0;
 }
 
-
-
-.textoLateral { 
-    max-width: 550px;
-    text-align: center;
-    z-index: 1;
-    position: relative;
-    
-    }
-
-.textoLateral p {
- font-size: 3.7rem;
-  color: #8b1e1e;
-  font-family: var(--ff-inria-sans);
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+/* TEXTO DENTRO DA METADE ESQUERDA */
+.textoLateral {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  padding: 80px;
+  color: #6b1e1e;
+  font-family: "Poppins", sans-serif;
+  font-size: 3.8rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-    
-    
-/* Lado direito */
+/* CARD DE CADASTRO */
 .right {
-    position: relative;
-    flex: 1;
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    color: black;
-    max-width: 380px;
-    right: -200px;
-    
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+  width: 520px; /* Aumentado */
+  padding: 60px 70px; /* mais respiro interno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto; /* empurra mais pra direita */
+  transform: translateY(20px); /* centralização visual com o texto */
+}
+
+/* Mantém o restante igual */
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
 .title {
-   font-size: 22px;
+  color: #8f2929;
+  font-size: 3rem;
   font-weight: bold;
- color: #8F2929;
-  font-family: var(--ff-inter);
-  margin: 0;                  /* remove margens que podem desalinhá-lo */
-  line-height: 1; 
-}
-
-.right label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    font-family: var(--ff-inter);
-    color: #8F2929;
-}
-
-.right input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    outline: none;
-}
-
-.right input::placeholder{
-  font-family: var(--ff-sansita);
-  font-style: italic;
-  font-size: 1.4rem;
-  letter-spacing: 0.1rem;
-}
-
-
-
-.titleWrapper {
-  display: flex;              /* garante alinhamento horizontal */
-  align-items: center;        /* centraliza verticalmente */
-  gap: 13px;                  /* espaço entre texto e ícone */
-  margin-bottom: 20px;
-  justify-content: center;
-}
-
-.title h2{
-  font-size: 24px;
-  font-weight: bold;
-  color: #8F2929; /* vermelho escuro */
-  line-height: 1.2;    /* garante que o texto fique bem centrado */
-  font-style: var(--ff-inter);
 }
 
 .icon {
- font-size: 28px;            /* ligeiramente maior que o texto */
-  color: #8F2929;
-  flex-shrink: 0;             /* evita compressão em telas pequenas */
-  display: inline-block;  /* evita que o ícone seja comprimido em telas muito pequenas */
+  color: #8f2929;
+  font-size: 2.9rem;
 }
+
+.right label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  font-weight: 600;
+  color: #8f2929;
+  margin-bottom: 6px;
+}
+
+.right input {
+  width: 100%;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 18px;
+  outline: none;
+  font-size: 1rem;
+}
+
 .enter {
-    width: 100%;
-    padding: 12px;
-    background-color: #B3920B;
-    /* dourado */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    transition: 0.3s;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 25px;
+  background-color: #b3920b;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.3s;
 }
 
 .enter:hover {
-    background-color: #94792a;
+  background-color: #94792a;
 }
 
 .login {
-    margin-top: 15px;
-    font-size: 1.6rem;
-    font-family: var( --ff-josefin-sans);
-    display: flex;
-    gap: 10px;
-   justify-content: center;
+  margin-top: 15px;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.login a {
-    color: #b22222;
-    font-weight: bold;
-    text-decoration: none;
+.form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 320px;
 }
 
-.login a:hover {
-    text-decoration: underline;
+.label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #6b1e1e;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.enter {
+  background-color: #d79e13;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enter:hover {
+  background-color: #b9860f;
+}
+
+.login {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ====== SEÇÃO COMO FUNCIONA ====== */
+.funcionaSection {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b1e1e;
+}
+
+.funcionaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.funcionaCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.funcionaCard h3 {
+  color: #6b1e1e;
+  margin-bottom: 10px;
+}
+
+.infos p {
+  margin-top: 8px;
+  font-weight: 500;
 }
