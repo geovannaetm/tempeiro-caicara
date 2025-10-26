@@ -21,10 +21,11 @@ export default function ParceiroAdm() {
   // Dados do estabelecimento
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [logo, setLogo] = useState(""); // dataURL
-  const [cover, setCover] = useState(""); // dataURL
+  const [numero, setNumero] = useState("");
+  const [logo, setLogo] = useState("");
+  const [cover, setCover] = useState("");
 
-  // Destaques (carrossel)
+  // Destaques
   const [destaques, setDestaques] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,10 +36,14 @@ export default function ParceiroAdm() {
     descricao: "",
     preco: "",
     categoria: "",
+    destaques: 0,
     imagem: "",
   });
 
-  // Pedidos (insight)
+  // Lista de pratos
+  const [pratos, setPratos] = useState([]);
+
+  // Pedidos
   const [pedidosCount, setPedidosCount] = useState(0);
   const pedidoSimulado = {
     nome: "Nome do pedido",
@@ -48,10 +53,11 @@ export default function ParceiroAdm() {
     imagem: "/pedidocarrinho.png",
   };
 
-  // Carregar do localStorage ao montar
+  // Carregar dados
   useEffect(() => {
     const sNome = localStorage.getItem("adm_nome");
     const sDesc = localStorage.getItem("adm_desc");
+    const sNumero = localStorage.getItem("adm_numero");
     const sLogo = localStorage.getItem("adm_logo");
     const sCover = localStorage.getItem("adm_cover");
     const sDestaques = localStorage.getItem("adm_destaques");
@@ -60,12 +66,13 @@ export default function ParceiroAdm() {
 
     if (sNome) setNome(sNome);
     if (sDesc) setDescricao(sDesc);
+    if (sNumero) setNumero(sNumero);
     if (sLogo) setLogo(sLogo);
     if (sCover) setCover(sCover);
     if (sDestaques) setDestaques(JSON.parse(sDestaques));
     if (sPedidos) setPedidosCount(Number(sPedidos));
+    if (sPratos) setPratos(JSON.parse(sPratos));
 
-    // ensure there's at least one destaque placeholder
     if (!sDestaques) {
       setDestaques([
         { id: Date.now(), img: "", title: "Seu destaque aqui", desc: "", price: "R$ 0,00" },
@@ -73,17 +80,17 @@ export default function ParceiroAdm() {
     }
   }, []);
 
-  // Salvar automaticamente
   useEffect(() => {
     localStorage.setItem("adm_nome", nome);
     localStorage.setItem("adm_desc", descricao);
+    localStorage.setItem("adm_numero", numero);
     localStorage.setItem("adm_logo", logo);
     localStorage.setItem("adm_cover", cover);
     localStorage.setItem("adm_destaques", JSON.stringify(destaques));
     localStorage.setItem("adm_pedidos", String(pedidosCount));
-  }, [nome, descricao, logo, cover, destaques, pedidosCount]);
+  }, [nome, descricao, numero, logo, cover, destaques, pedidosCount]);
 
-  // Upload handlers (leem como dataURL para persistir no localStorage)
+  // Uploads
   const onLogoChange = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -98,7 +105,7 @@ export default function ParceiroAdm() {
     setCover(data);
   };
 
-  // Destaques: adicionar / editar / remover / upload imagem
+  // Destaques
   const addDestaque = () => {
     setDestaques((prev) => [
       ...prev,
@@ -123,7 +130,6 @@ export default function ParceiroAdm() {
   };
 
   const saveDestaque = (destaque) => {
-    // Simula POST para salvar destaque
     const payload = {
       id: destaque.id,
       title: destaque.title,
@@ -135,11 +141,11 @@ export default function ParceiroAdm() {
     alert("Destaque salvo (veja console).");
   };
 
-  // Carrossel controls
   const handlePrev = () => {
     if (destaques.length === 0) return;
     setCurrentIndex((i) => (i === 0 ? destaques.length - 1 : i - 1));
   };
+
   const handleNext = () => {
     if (destaques.length === 0) return;
     setCurrentIndex((i) => (i === destaques.length - 1 ? 0 : i + 1));
@@ -147,7 +153,6 @@ export default function ParceiroAdm() {
 
   const visibleDestaques = () => {
     if (destaques.length === 0) return [];
-    // mostra até 3, centrando no currentIndex
     const out = [];
     for (let i = 0; i < 3; i++) {
       out.push(destaques[(currentIndex + i) % destaques.length]);
@@ -155,38 +160,59 @@ export default function ParceiroAdm() {
     return out;
   };
 
-  // Modal prato handlers
-  const openAddPrato = () => {
-    setShowForm(true);
-  };
+  // Modal prato
+  const openAddPrato = () => setShowForm(true);
+
   const closeAddPrato = () => {
     setShowForm(false);
-    setNewPrato({ nome: "", descricao: "", preco: "", categoria: "", imagem: "" });
+    setNewPrato({
+      nome: "",
+      descricao: "",
+      preco: "",
+      categoria: "",
+      destaques: 0,
+      imagem: "",
+    });
   };
+
   const onPratoImageChange = async (file) => {
     if (!file) return;
     const data = await readFileAsDataURL(file);
     setNewPrato((p) => ({ ...p, imagem: data }));
   };
+
   const submitPrato = (e) => {
     e.preventDefault();
-    // Salvar nos pratos do usuário (localStorage => page user lê esses 'user_pratos')
     const existing = JSON.parse(localStorage.getItem("user_pratos") || "[]");
-    const pratoToSave = { ...newPrato, id: Date.now() };
-    localStorage.setItem("user_pratos", JSON.stringify([...existing, pratoToSave]));
 
-    // Simula POST
-    console.log("POST /api/pratos ->", JSON.stringify(pratoToSave, null, 2));
+    let updatedList;
+    if (newPrato.id) {
+      updatedList = existing.map((p) => (p.id === newPrato.id ? newPrato : p));
+    } else {
+      const pratoToSave = { ...newPrato, id: Date.now() };
+      updatedList = [...existing, pratoToSave];
+    }
 
-    // feedback + fechar
+    localStorage.setItem("user_pratos", JSON.stringify(updatedList));
+    setPratos(updatedList);
+    
     alert("Prato salvo com sucesso.");
     closeAddPrato();
   };
 
-  // Simular pedido (aumenta contagem e calcula faturamento)
+  const editPrato = (prato) => {
+    setNewPrato(prato);
+    setShowForm(true);
+  };
+
+  const deletePrato = (id) => {
+    const updated = pratos.filter((p) => p.id !== id);
+    setPratos(updated);
+    localStorage.setItem("user_pratos", JSON.stringify(updated));
+  };
+
   const simularPedido = () => {
     setPedidosCount((p) => p + 1);
-    // também loga o objeto pedido simulado (como se viesse do usuário)
     console.log("Simulação pedido finalizado ->", JSON.stringify(pedidoSimulado, null, 2));
   };
 
@@ -233,6 +259,12 @@ export default function ParceiroAdm() {
                 onChange={(e) => setNome(e.target.value)}
                 placeholder="Nome do estabelecimento"
               />
+              <input
+                className={styles.nameInput}
+                value={numero}
+                onChange={(e) => setNumero(e.target.value)}
+                placeholder="Número do estabelecimento"
+              />
               <textarea
                 className={styles.descInput}
                 value={descricao}
@@ -247,10 +279,11 @@ export default function ParceiroAdm() {
                 onClick={() => {
                   localStorage.setItem("adm_nome", nome);
                   localStorage.setItem("adm_desc", descricao);
+                  localStorage.setItem("adm_numero", numero);
                   localStorage.setItem("adm_logo", logo);
                   localStorage.setItem("adm_cover", cover);
                   alert("Dados do estabelecimento salvos .");
-                  console.log("POST /api/estabelecimento ->", JSON.stringify({ nome, descricao, logo: !!logo ? "dataURL" : null, cover: !!cover ? "dataURL" : null }, null, 2));
+                  console.log("POST /api/estabelecimento ->", JSON.stringify({ nome, descricao, numero, logo: !!logo ? "dataURL" : null, cover: !!cover ? "dataURL" : null }, null, 2));
                 }}
               >
                 <FaRegEdit />
@@ -363,6 +396,39 @@ export default function ParceiroAdm() {
               </button>
             </div>
           </div>
+
+          
+          {/* Lista de pratos adicionados */}
+            <div className={styles.section}>
+              <h3>Pratos cadastrados</h3>
+              <div className={styles.pratosGrid}>
+                {pratos.map((prato) => (
+                  <div key={prato.id} className={styles.pratoCard}>
+                    <div className={styles.pratoImgWrap}>
+                      {prato.imagem ? (
+                        <img src={prato.imagem} alt={prato.nome} className={styles.pratoImg} />
+                      ) : (
+                        <div className={styles.uploadPlaceholder}>Sem imagem</div>
+                      )}
+                    </div>
+                    <div className={styles.pratoInfo}>
+                      <strong>{prato.nome}</strong>
+                      <p>{prato.descricao}</p>
+                      <p><strong>{prato.preco}</strong></p>
+                    </div>
+                    <div className={styles.pratoActions}>
+                      <button className={styles.saveMini} onClick={() => editPrato(prato)}>
+                        Editar
+                      </button>
+                      <button className={styles.removeMini} onClick={() => deletePrato(prato.id)}>
+                        <FaTrash />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
         </section>
 
        
@@ -416,10 +482,33 @@ export default function ParceiroAdm() {
                 />
 
                 <label>Categoria</label>
-                <input
-                  value={newPrato.categoria}
-                  onChange={(e) => setNewPrato((p) => ({ ...p, categoria: e.target.value }))}
-                />
+                  <select
+                  className={styles.selectInput}
+                    value={newPrato.categoria}
+                    onChange={(e) => setNewPrato((p) => ({ ...p, categoria: e.target.value }))}
+                    required
+                  >
+                    <option value="">Selecione uma categoria</option>
+                    <option value="Camarão">Camarão</option>
+                    <option value="Açaí">Açaí</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Peixes">Peixes</option>
+                    <option value="Porções">Porções</option>
+                    <option value="Sorvetes">Sorvetes</option>
+                    <option value="Pratos Feitos">Pratos Feitos</option>
+                  </select>
+
+               <label>
+                  Destaques
+                   <input
+                    type="checkbox"
+                    className={styles.checkboxInput}
+                    checked={newPrato.destaques === 1}
+                    onChange={(e) =>
+                      setNewPrato((p) => ({ ...p, destaques: e.target.checked ? 1 : 0 }))
+                    }
+                  />
+                </label>
 
                 <div className={styles.modalActions}>
                   <button type="submit" className={styles.buttonPrimary}>
