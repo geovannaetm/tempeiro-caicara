@@ -237,7 +237,7 @@ export default function ParceiroAdm() {
             )}
           </div>
 
-          {/* HEADER INFO: logo / nome / descrição */}
+          {/* HEADER */}
           <div className={styles.headerInfo}>
             <div className={styles.logoBox}>
               {logo ? (
@@ -390,11 +390,7 @@ export default function ParceiroAdm() {
               </div>
             </div>
 
-            <div className={styles.simRow}>
-              <button className={styles.simBtn} onClick={simularPedido}>
-                + Simular pedido finalizado (aumenta contador)
-              </button>
-            </div>
+           
           </div>
 
           
