@@ -1,52 +1,93 @@
-import styles from './cadastrolocal.module.css'
-import Link from 'next/link'
-import Topo from '@/components/Topo'
+"use client";
+
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import styles from './cadastrolocal.module.css';
+import Topo from '@/components/Topo';
 import { CiLocationOn } from "react-icons/ci";
 
-
 export default function CadastroLocal() {
-    return(
+  const router = useRouter();
+  const [location, setLocation] = useState({
+    bairro: '',
+    rua: '',
+    numero: '',
+  });
 
-        <div className={styles.page}>
+  function handleChange(e) {
+    setLocation({ ...location, [e.target.name]: e.target.value });
+  }
 
-        <Topo />
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-        
+    // Validação: não permitir campos vazios
+    if (!location.bairro || !location.rua || !location.numero) {
+      return alert('Preencha todos os campos antes de finalizar!');
+    }
+
+    const tempUser = JSON.parse(localStorage.getItem('tempUser'));
+    if (!tempUser) {
+      alert('Erro: dados básicos não encontrados. Refaça o cadastro.');
+      return router.push('/cadastro');
+    }
+
+    // Agora já está no formato certo para o backend
+    const userData = { ...tempUser, ...location };
+
+    try {
+      const response = await fetch('http://localhost:3333/user/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao cadastrar');
+      }
+
+      alert('Cadastro finalizado com sucesso!');
+      localStorage.removeItem('tempUser');
+      router.push('/userpage');
+    } catch (error) {
+      alert('Erro: ' + error.message);
+    }
+  }
+
+  return (
+    <div className={styles.page}>
+      <Topo />
       <main className={styles.main}>
-         {/* círculo amarelo no fundo */}
-  <div className={styles.yellowCircle}></div>
+        <div className={styles.yellowCircle}></div>
 
         <div className={styles.formBox}>
           <h2>Localização<CiLocationOn style={{ marginLeft: '8px',}} /></h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>Digite seu Bairro:</label>
-            <input type="text" placeholder="Digite o sue bairro:" />
+            <input name="bairro" type="text" placeholder="Digite o seu bairro:" onChange={handleChange} />
 
             <label>Digite sua Rua:</label>
-            <input type="email" placeholder="Digite o seu endereço:" />
+            <input name="rua" type="text" placeholder="Digite o seu endereço:" onChange={handleChange} />
 
-            <label>Digite N°:</label>
-            <input type="password" placeholder="Digite o número da sua Rua:" />
+            <label>Número:</label>
+            <input name="numero" type="text" placeholder="Digite o número de sua casa:" onChange={handleChange} />
 
-            <Link href='/userpage' >
             <button type="submit">Finalizar</button>
-            </Link>
-
           </form>
 
-          <hr className={styles.hr}></hr>
+          <hr className={styles.hr} />
           <p className={styles.loginText}>
             Já possui uma conta? <a href='/login'>Login</a>
           </p>
         </div>
 
         <div className={styles.textBox}>
-          <h1>O TEMPERO DO MAR ESTÁ<br/> TE ESPERANDO...</h1>
+          <h1>O TEMPERO DO MAR ESTÁ<br /> TE ESPERANDO...</h1>
           <p>se cadastre já!</p>
         </div>
       </main>
-
-
-        </div>
-    )
+    </div>
+  );
 }
