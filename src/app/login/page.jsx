@@ -17,37 +17,46 @@ export default function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault();
 
-    if (!formData.email || !formData.pass) {
-      return alert('Preencha todos os campos antes de continuar!');
-    }
-
-    try {
-      const response = await fetch('http://localhost:3333/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.email,
-          pass: formData.pass,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Email ou senha inválidos');
-      }
-
-      // Salva o ID do usuário para uso na página de perfil
-      localStorage.setItem("userId", data.user.id);
-      alert('Login realizado com sucesso!');
-      router.push('/userpage');
-    } catch (error) {
-      alert('Erro: ' + error.message);
-    }
+  if (!formData.email || !formData.pass) {
+    return alert('Preencha todos os campos antes de continuar!');
   }
+
+  try {
+    const response = await fetch('http://localhost:3333/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: formData.email,
+        pass: formData.pass,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Email ou senha inválidos');
+    }
+
+    // Salva token e tipo de usuário
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('tipoUser', data.tipoUser);
+    localStorage.setItem('userId', data.profile.id);
+
+    alert('Login realizado com sucesso!');
+
+    // Redireciona com base no tipo de usuário
+    if (data.tipoUser === 'user') {
+      router.push('/userpage');
+    } else if (data.tipoUser === 'parceiro') {
+      router.push('/parceiroadm'); 
+    }
+  } catch (error) {
+    alert('Erro: ' + error.message);
+  }
+}
 
   return (
     <div className={styles.page}>
