@@ -20,9 +20,10 @@
 }
 
 .tituloSecao {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   font-family: var(--ff-inter);
+  letter-spacing: 0.1rem;
 }
 
 .pedidosBox {
@@ -129,6 +130,7 @@
   font-weight: 600;
   margin-bottom: 0.3rem;
   font-family: var(--ff-inter);
+  font-size: 1.7rem;
 }
 
 .formGroup input,
@@ -136,7 +138,7 @@
   width: 100%;
   padding: 0.7rem;
   border-radius: 20px;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   border: 1px solid #535353;
   background-color: #eeeeee;
   outline: none;

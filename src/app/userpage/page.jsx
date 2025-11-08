@@ -22,7 +22,9 @@ export default function UserPage() {
   const [user, setUser] = useState({
     name: "",
     email: "",
-    endereco: "",
+    rua: "",
+    numero: "",
+    bairro: "",
     pass: "",
     pagamento: "Débito",
   });
@@ -52,8 +54,10 @@ export default function UserPage() {
         setUser({
           name: data.name,
           email: data.email,
-          endereco: `${data.rua}, ${data.numero} - ${data.bairro}`,
-          pass: data.pass,
+          rua: data.rua || "",
+          numero: data.numero || "",
+          bairro: data.bairro || "",
+          pass: "", // senha em branco
           pagamento: "Débito",
         });
       } catch (error) {
@@ -69,11 +73,24 @@ export default function UserPage() {
   };
 
   const handleUpdate = async () => {
+    const updatedUser = {
+      name: user.name,
+      email: user.email,
+      rua: user.rua,
+      numero: user.numero,
+      bairro: user.bairro,
+      pagamento: user.pagamento,
+    };
+
+    if (user.pass) {
+      updatedUser.pass = user.pass;
+    }
+
     try {
       const response = await fetch(`http://localhost:3333/user/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
+        body: JSON.stringify(updatedUser),
       });
 
       const data = await response.json();
@@ -150,8 +167,18 @@ export default function UserPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Endereço:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
-            <input type="text" name="endereco" value={user.endereco} onChange={handleChange} />
+            <label>Rua:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
+            <input type="text" name="rua" value={user.rua} onChange={handleChange} />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Número:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
+            <input type="text" name="numero" value={user.numero} onChange={handleChange} />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Bairro:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
+            <input type="text" name="bairro" value={user.bairro} onChange={handleChange} />
           </div>
 
           <div className={styles.formGroup}>
@@ -160,7 +187,7 @@ export default function UserPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Pagamento:</label>
+            <label>Pagamento:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
             <select name="pagamento" value={user.pagamento} onChange={handleChange}>
               <option value="Débito">Débito</option>
               <option value="Crédito">Crédito</option>
@@ -169,8 +196,14 @@ export default function UserPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Senha:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
-            <input type="password" name="pass" value={user.pass} onChange={handleChange} />
+            <label>Nova Senha:<FaRegEdit style={{ marginLeft: "5px", color: "#48742C" }} /></label>
+            <input
+              type="password"
+              name="pass"
+              value={user.pass}
+              onChange={handleChange}
+              placeholder="Digite nova senha..."
+            />
           </div>
 
           <div className={styles.botoes}>
