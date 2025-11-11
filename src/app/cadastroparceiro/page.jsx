@@ -5,6 +5,7 @@ import styles from "./cadastroparceiro.module.css";
 import { useState } from "react";
 import Topo from "@/components/Topo";
 import Link from "next/link";
+import Rodape from "@/components/Rodape";
 
 export default function CadastroParceiro() {
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ export default function CadastroParceiro() {
               />
 
               <Link href="cadastroparceiro2">
-                <button type="button" className={styles.enter}>
+                <button type="button" >
                   Entrar
                 </button>
               </Link>
@@ -83,7 +84,12 @@ export default function CadastroParceiro() {
             </div>
           </div>
         </section>
+      
       </main>
+      <Rodape />
     </div>
   );
+
+ 
 }
+
