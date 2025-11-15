@@ -277,7 +277,7 @@ export default function ParceiroAdm() {
       {/* Destaques */}
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h3>Destaques</h3>
+          <h3 className={styles.titledestaques}>Destaques</h3>
         </div>
         <div className={styles.carouselWrap}>
           <button className={styles.arrowBtn} onClick={handlePrev}>
@@ -311,7 +311,7 @@ export default function ParceiroAdm() {
 
       {/* Insights */}
       <div className={styles.section}>
-        <h3>Veja o insight da sua loja</h3>
+        <h3 className={styles.titleinsight}>Veja o insight da sua loja</h3>
         <div className={styles.insightsRow}>
           <div className={styles.insightCard}>
             <p>Pedidos</p>
@@ -332,7 +332,7 @@ export default function ParceiroAdm() {
 
       {/* Lista de pratos */}
       <div className={styles.section}>
-        <h3>Pratos cadastrados</h3>
+        <h3 className={styles.titlecadpratos}>Pratos cadastrados</h3>
         <div className={styles.pratosGrid}>
           {pratos.map((prato) => (
             <div key={prato.id} className={styles.pratoCard}>
@@ -367,7 +367,7 @@ export default function ParceiroAdm() {
   {showForm && (
     <div className={styles.modalOverlay}>
       <div className={styles.modalBox}>
-        <h3>{newPrato.id ? "Editar prato" : "Novo prato"}</h3>
+        <h3 className={styles.titleprato}>{newPrato.id ? "Editar prato" : "Crie aqui o seu delicioso prato:"}</h3>
         <form className={styles.formGrid} onSubmit={submitPrato}>
           <div className={styles.formLeft}>
             <label className={styles.uploadBox}>
@@ -452,6 +452,7 @@ export default function ParceiroAdm() {
 
     {/* Botões de ações finais */}
     <div className={styles.footerActions}>
+
       <button
         className={styles.logoutBtn}
         onClick={() => {
@@ -459,7 +460,7 @@ export default function ParceiroAdm() {
           window.location.href = "/login";
         }}
       >
-        Sair da conta
+        Encerrar sessão
       </button>
 
       <button
