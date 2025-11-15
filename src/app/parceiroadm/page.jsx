@@ -446,7 +446,49 @@ export default function ParceiroAdm() {
         </form>
       </div>
     </div>
+
   )}
+
+
+    {/* Botões de ações finais */}
+    <div className={styles.footerActions}>
+      <button
+        className={styles.logoutBtn}
+        onClick={() => {
+          localStorage.removeItem("userId");
+          window.location.href = "/login";
+        }}
+      >
+        Sair da conta
+      </button>
+
+      <button
+        className={styles.deleteBtn}
+        onClick={async () => {
+          const confirm = window.confirm(
+            "Tem certeza que deseja excluir este estabelecimento e todos os pratos?"
+          );
+          if (!confirm) return;
+
+          try {
+            await fetch(`http://localhost:3333/api/estabelecimentos/${estabelecimentoId}`, {
+              method: "DELETE",
+            });
+
+            alert("Estabelecimento e pratos excluídos com sucesso!");
+            localStorage.removeItem("userId");
+            window.location.href = "/login";
+          } catch (error) {
+            console.error("Erro ao excluir:", error);
+            alert("Erro ao excluir estabelecimento.");
+          }
+        }}
+      >
+        Excluir estabelecimento
+      </button>
+    </div>
+
+  
   <Rodape />
 </div>
   );
