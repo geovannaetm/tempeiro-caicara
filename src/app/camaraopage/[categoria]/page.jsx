@@ -1,24 +1,47 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { AiFillStar } from "react-icons/ai";
-import styles from "./camaraopage.module.css";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
 import ModalProduto from "@/components/ModalProduto";
+import styles from "./camaraopage.module.css";
 
-export default function PaginaCamarao() {
+// Função para normalizar nomes -> slug
+function slugify(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+// Mapa de categorias → nome + banner
+const categorias = {
+  camarao: { nome: "Camarão", banner: "/bannercamarao.png" },
+  acai: { nome: "Açaí", banner: "/banneracai.png" },
+  bebidas: { nome: "Bebidas", banner: "/bannerbebidas.png" },
+  peixes: { nome: "Peixes", banner: "/bannerpeixes.png" },
+  porcoes: { nome: "Porções", banner: "/bannerporcoes.png" },
+  sorvetes: { nome: "Sorvetes", banner: "/bannersorvetes.png" },
+ "pratos-feitos": { nome: "Pratos Feitos", banner: "/bannerpratofeito.png" },
+};
+
+export default function PaginaCategoria() {
+  const { categoria: slug } = useParams();
+  const categoria = categorias[slug] || { nome: slug, banner: "/bannerpratofeito.png" };
+
   const [estabelecimentos, setEstabelecimentos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalProduto, setModalProduto] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Busca todos os estabelecimentos
         const resEst = await fetch("http://localhost:3333/api/estabelecimentos");
         const estData = await resEst.json();
 
-        // Para cada estabelecimento, busca seus pratos
         const estComPratos = await Promise.all(
           estData.map(async (est) => {
             const resPratos = await fetch(
@@ -26,16 +49,15 @@ export default function PaginaCamarao() {
             );
             const pratos = await resPratos.json();
 
-            // Filtra apenas os pratos da categoria "Camarão"
-            const pratosCamarao = pratos.filter(
-              (p) => p.categoria.toLowerCase() === "camarão"
+           
+            const filtrados = pratos.filter(
+              (p) => slugify(p.categoria) === slug
             );
 
-            return { ...est, produtos: pratosCamarao };
+            return { ...est, produtos: filtrados };
           })
         );
 
-        // Só mantém estabelecimentos que têm pratos de camarão
         setEstabelecimentos(estComPratos.filter((e) => e.produtos.length > 0));
       } catch (err) {
         console.error("Erro ao carregar dados:", err);
@@ -45,23 +67,36 @@ export default function PaginaCamarao() {
     };
 
     fetchData();
-  }, []);
+  }, [slug]);
+
+  const handleOpenModal = (produto) => setModalProduto(produto);
+  const handleCloseModal = () => setModalProduto(null);
 
   return (
     <div className={styles.container}>
       <Topo />
 
       <section className={styles.banner}>
-        <img src="/bannercamarao.png" alt="Banner" className={styles.bannerImage} />
-        <div className={styles.bannerText}>Camarão</div>
+        <img src={categoria.banner} alt={categoria.nome} className={styles.bannerImage} />
+        <div className={styles.bannerText}>{categoria.nome}</div>
       </section>
 
       {loading ? (
         <p>Carregando...</p>
       ) : estabelecimentos.length === 0 ? (
-        <p>Nenhum prato de camarão encontrado.</p>
+        <p>Nenhum prato de {categoria.nome.toLowerCase()} encontrado.</p>
       ) : (
-        estabelecimentos.map((q) => <CardQuiosque key={q.id} data={q} />)
+        estabelecimentos.map((q) => (
+          <CardQuiosque key={q.id} data={q} onOpenModal={handleOpenModal} />
+        ))
+      )}
+
+      {modalProduto && (
+        <ModalProduto
+          produto={modalProduto}
+          quiosque={modalProduto.estabelecimento}
+          onClose={handleCloseModal}
+        />
       )}
 
       <Rodape />
@@ -69,9 +104,8 @@ export default function PaginaCamarao() {
   );
 }
 
-function CardQuiosque({ data }) {
+function CardQuiosque({ data, onOpenModal }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [modalProduto, setModalProduto] = useState(null);
 
   const handlePrev = () => {
     setCurrentIndex((prev) =>
@@ -84,9 +118,6 @@ function CardQuiosque({ data }) {
       prev === data.produtos.length - 1 ? 0 : prev + 1
     );
   };
-
-  const handleOpenModal = (produto) => setModalProduto(produto);
-  const handleCloseModal = () => setModalProduto(null);
 
   const getVisibleItems = () => {
     const visible = [];
@@ -123,9 +154,14 @@ function CardQuiosque({ data }) {
             <div
               key={item.id}
               className={styles.carouselItem}
-              onClick={() => handleOpenModal(item)}
+              onClick={() => onOpenModal({ ...item, estabelecimento: data })}
             >
-              <img src={item.imagem} alt={item.nome} className={styles.imgcarosel} />
+              
+              {item.imagem ? (
+                <img src={item.imagem} alt={item.nome} className={styles.imgcarosel} />
+              ) : (
+                <img src="/bannercamarao.png" alt="Imagem padrão" className={styles.imgcarosel} />
+              )}
               <p>{item.nome}</p>
               <span className={styles.price}>
                 {Number(item.preco).toLocaleString("pt-BR", {
@@ -141,14 +177,6 @@ function CardQuiosque({ data }) {
           <IoIosArrowForward size={35} />
         </button>
       </div>
-
-      {modalProduto && (
-        <ModalProduto
-          produto={modalProduto}
-          quiosque={data}
-          onClose={handleCloseModal}
-        />
-      )}
     </div>
   );
 }

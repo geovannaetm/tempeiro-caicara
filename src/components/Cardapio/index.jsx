@@ -21,9 +21,17 @@ const sections = [
   { src: img8, alt: "Açaí", label: "Açaí" },
 ];
 
+function slugify(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
 export default function Cardapio() {
   return (
-    <div className={styles.container} >
+    <div className={styles.container}>
       <div className={styles.cardapio}>
         <div className={styles.linha}></div>
         <h1 className={styles.cardapio_text}>CARDÁPIO</h1>
@@ -32,7 +40,11 @@ export default function Cardapio() {
 
       <div className={styles.imgs_cardapio}>
         {sections.map(({ src, alt, label }, index) => (
-          <Link href='/camaraopage' key={index} className={styles.card_item}>
+          <Link
+            href={`/camaraopage/${slugify(label)}`}
+            key={index}
+            className={styles.card_item}
+          >
             <div className={styles.img_wrapper}>
               <Image className={styles.img_cardapio} src={src} alt={alt} />
               <div className={styles.overlay}>
