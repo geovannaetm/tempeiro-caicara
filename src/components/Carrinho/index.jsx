@@ -1,86 +1,109 @@
 "use client";
-import { useState } from "react";
+import { useCarrinho } from "@/context/CarrinhoContext";
 import styles from "./Carrinho.module.css";
 import Image from "next/image";
-import { IoMdClose } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
-export default function Carrinho({ aberto, fechar }) {
-  const [quantidade, setQuantidade] = useState(1);
-  const precoUnitario = 30.0;
-  const subtotal = precoUnitario * quantidade;
+export default function CarrinhoSidebar({ aberto, onClose }) {
+  const { itens, removerItem, atualizarQuantidade, cartId, limparCarrinho } = useCarrinho();
+  const lista = Array.isArray(itens) ? itens : [];
+  const subtotal = lista.reduce(
+    (acc, item) => acc + Number(item.preco) * Number(item.quantidade),
+    0
+  );
 
-  const aumentar = () => setQuantidade(quantidade + 1);
-  const diminuir = () => {
-    if (quantidade > 1) setQuantidade(quantidade - 1);
-  };
+  // finalizar o pedido
+  async function handleFinalizar() {
+    const token = localStorage.getItem("token");
+    if (!token || !cartId) {
+      alert("Você precisa estar logado para finalizar.");
+      return;
+    }
 
-  const removerItem = () => {
-    setQuantidade(0);
-  };
+    try {
+      const res = await fetch(`http://localhost:3333/api/orders/from-cart/${cartId}`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Erro ao criar pedido");
 
-  const finalizarPedido = () => {
-    console.log("Pedido enviado:", {
-      produto: "Açaí no copo - 400ml",
-      quantidade,
-      subtotal,
-    });
-  };
+      alert("Pedido criado com sucesso!");
+      limparCarrinho(); 
+      onClose();       
+    } catch (err) {
+      alert("Erro: " + err.message);
+    }
+  }
 
   return (
     <div className={`${styles.overlay} ${aberto ? styles.show : ""}`}>
       <div className={styles.sidebar}>
-        {/* Header do Carrinho */}
         <div className={styles.header}>
-          <h2>CARRINHO</h2>
-          <button className={styles.closeBtn} onClick={fechar}>
+          <h2>Meu Carrinho</h2>
+          <button className={styles.closeBtn} onClick={onClose}>
             <IoMdClose size={28} />
           </button>
         </div>
 
-        {/* Conteúdo */}
-        {quantidade > 0 ? (
-          <div className={styles.item}>
-            <Image
-              src="/pedidocarrinho.png"
-              alt="Açaí"
-              width={70}
-              height={70}
-              className={styles.imagem}
-            />
-            <div className={styles.info}>
-              <p className={styles.nome}>Açaí no copo - 400ml</p>
-              <p className={styles.preco}>R$ {precoUnitario.toFixed(2)}</p>
-
-              <div className={styles.acoes}>
-                <button className={styles.iconBtn} onClick={removerItem}>
-                  <FaTrash size={14} color="#fff" />
-                </button>
-
-                <button className={styles.qtdBtn} onClick={diminuir}>-</button>
-                <span className={styles.qtd}>{quantidade}</span>
-                <button className={styles.qtdBtn} onClick={aumentar}>+</button>
+        {lista.length > 0 ? (
+          <div className={styles.lista}>
+            {lista.map((item) => (
+              <div key={item.id} className={styles.item}>
+                <Image
+                  src={item.imagem || "/bannerpadrao.png"}
+                  alt={item.nome}
+                  width={70}
+                  height={70}
+                  className={styles.imagem}
+                />
+                <div className={styles.info}>
+                  <p className={styles.nome}>{item.nome}</p>
+                  <p className={styles.preco}>R$ {Number(item.preco).toFixed(2)}</p>
+                  <div className={styles.acoes}>
+                    <button
+                      className={styles.iconBtn}
+                      onClick={() => removerItem(item.id)}
+                    >
+                      <FaTrash size={14} color="#fff" />
+                    </button>
+                    <button
+                      className={styles.qtdBtn}
+                      onClick={() =>
+                        atualizarQuantidade(item.id, item.quantidade - 1)
+                      }
+                    >
+                      -
+                    </button>
+                    <span className={styles.qtd}>{item.quantidade}</span>
+                    <button
+                      className={styles.qtdBtn}
+                      onClick={() =>
+                        atualizarQuantidade(item.id, item.quantidade + 1)
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
+            ))}
+            <div className={styles.subtotal}>
+              <span>Subtotal</span>
+              <strong>R$ {subtotal.toFixed(2)}</strong>
             </div>
+            <button
+      className={styles.finalizar}
+      disabled={itens.length === 0}
+      onClick={handleFinalizar}
+    >
+              Finalizar
+            </button>
           </div>
         ) : (
           <p className={styles.empty}>Carrinho vazio</p>
         )}
-
-        {/* Subtotal */}
-        <div className={styles.subtotal}>
-          <span>Subtotal</span>
-          <strong>R$ {subtotal.toFixed(2)}</strong>
-        </div>
-
-        {/* Botão Finalizar */}
-        <button
-          className={styles.finalizar}
-          onClick={finalizarPedido}
-          disabled={quantidade === 0}
-        >
-          Finalizar
-        </button>
       </div>
     </div>
   );

@@ -115,6 +115,22 @@
  
 }
 
+.limparPedidos {
+  background: #8F2929;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.3s ease;
+}
+
+.limparPedidos:hover {
+  background: #B49721;
+}
+
 .formBox {
   background: #e0e0e0;
   padding: 1.5rem;

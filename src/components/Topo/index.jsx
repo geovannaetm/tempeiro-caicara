@@ -9,7 +9,7 @@ import { FaUserTie } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "/public/logo.png";
 import { IoMdArrowDropdown } from "react-icons/io";
-import Carrinho from "../Carrinho";
+import CarrinhoSidebar from "@/components/Carrinho";
 
 export default function Topo() {
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
@@ -29,9 +29,7 @@ export default function Topo() {
           : `http://localhost:3333/user/${id}`;
 
       fetch(endpoint, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -116,9 +114,11 @@ export default function Topo() {
         </div>
       </div>
 
-      {userType !== "parceiro" && (
-        <Carrinho aberto={abrirCarrinho} fechar={() => setAbrirCarrinho(false)} />
-      )}
+      {/* Sidebar do carrinho */}
+      <CarrinhoSidebar
+        aberto={abrirCarrinho}
+        onClose={() => setAbrirCarrinho(false)}
+      />
     </>
   );
 }

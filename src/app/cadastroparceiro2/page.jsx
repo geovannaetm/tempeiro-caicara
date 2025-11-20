@@ -45,7 +45,7 @@ export default function Cadastro() {
 
       alert("Cadastro de parceiro realizado com sucesso!");
       localStorage.removeItem("admEmail");
-      router.push("/parceiroadm");
+      router.push("/login");
     } catch (error) {
       alert("Erro: " + error.message);
     }

@@ -16,9 +16,11 @@ import {
   IoTrash,
   IoRefreshCircleOutline,
 } from "react-icons/io5";
+import { useCarrinho } from "@/context/CarrinhoContext";
 
 export default function UserPage() {
   const router = useRouter();
+   const { limparCarrinho } = useCarrinho();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -29,13 +31,8 @@ export default function UserPage() {
     pagamento: "Débito",
   });
 
-  const [pedido] = useState({
-    nome: "Nome do pedido",
-    descricao: "descrição do pedido...",
-    valor: 50.0,
-    status: "Pedido a caminho",
-    imagem: "/pedidocarrinho.png",
-  });
+ const [pedidos, setPedidos] = useState([]);
+
 
   const userId = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
@@ -65,12 +62,47 @@ export default function UserPage() {
       }
     }
 
-    fetchUser();
+     
+  async function fetchPedidos() {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch("http://localhost:3333/api/orders/my-orders", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Erro ao buscar pedidos");
+      setPedidos(data);
+    } catch (err) {
+      alert("Erro ao carregar pedidos: " + err.message);
+    }
+  }
+
+  fetchUser();
+  fetchPedidos();
   }, [userId, router]);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
+  const handleClearPedidos = async () => {
+  const confirm = window.confirm("Tem certeza que deseja limpar todos os pedidos?");
+  if (!confirm) return;
+
+  try {
+    const token = localStorage.getItem("token");
+    const res = await fetch("http://localhost:3333/api/orders/my-orders", {
+      method: "DELETE", 
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (!res.ok) throw new Error("Erro ao limpar pedidos");
+    alert("Pedidos limpos com sucesso!");
+    setPedidos([]); 
+  } catch (err) {
+    alert("Erro: " + err.message);
+  }
+};
 
   const handleUpdate = async () => {
     const updatedUser = {
@@ -113,6 +145,7 @@ export default function UserPage() {
       if (!response.ok) throw new Error("Erro ao excluir conta");
       alert("Conta excluída com sucesso!");
       localStorage.removeItem("userId");
+      limparCarrinho(); 
       router.push("/cadastro");
     } catch (error) {
       alert("Erro: " + error.message);
@@ -121,6 +154,9 @@ export default function UserPage() {
 
   const handleLogout = () => {
     localStorage.removeItem("userId");
+    localStorage.removeItem("tipoUser");
+    localStorage.removeItem("token");
+    limparCarrinho();
     router.push("/login");
   };
 
@@ -132,31 +168,57 @@ export default function UserPage() {
           Olá, <span>{user.name}<FaBell className={styles.icone} /></span>
         </h2>
 
-        <div className={styles.pedidosBox}>
-          <h3 className={styles.tituloSecao}>Meus Pedidos:</h3>
-          <div className={styles.cardPedido}>
-            <div className={styles.cardHeader}>
-              <span className={styles.nomePedido}>
-                <IoTicket style={{ marginRight: "8px", color: "#B49721" }} />
-                {pedido.nome}
-              </span>
-              <span className={styles.valorPedido}>
-                <span className={styles.totalpedido}>Valor do Pedido:</span>R${pedido.valor},00
-              </span>
-            </div>
-            <div className={styles.cardBody}>
-              <img src={pedido.imagem} alt="Pedido" className={styles.imagemPedido} />
-              <div className={styles.descricao}>{pedido.descricao}</div>
-            </div>
-            <div className={styles.cardFooter}>
-              <hr />
-              <span className={styles.status}>
-                <IoCheckmarkCircle style={{ marginRight: "8px" }} />
-                {pedido.status}
-              </span>
-            </div>
+<div className={styles.pedidosBox}>
+  <h3 className={styles.tituloSecao}>Meus Pedidos:</h3>
+  {pedidos.length > 0 ? (
+    pedidos.map((pedido) => (
+      <div key={pedido.id_order} className={styles.cardPedido}>
+        <div className={styles.cardHeader}>
+          <span className={styles.nomePedido}>
+            <IoTicket style={{ marginRight: "8px", color: "#B49721" }} />
+            Pedido #{pedido.id_order}
+          </span>
+          <span className={styles.valorPedido}>
+            <span className={styles.totalpedido}>Valor do Pedido:</span>
+            R${pedido.order_has_pratos.reduce(
+              (acc, p) => acc + p.pratos.preco * p.quantidade,
+              0
+            ).toFixed(2)}
+          </span>
+        </div>
+        <div className={styles.cardBody}>
+          <img
+            src={pedido.order_has_pratos[0]?.pratos?.imagem || "/pedidocarrinho.png"}
+            alt="Pedido"
+            className={styles.imagemPedido}
+          />
+          <div className={styles.descricao}>
+            {pedido.order_has_pratos.map((p) => (
+              <div key={p.pratos_id}>
+                {p.quantidade}x {p.pratos.nome}
+              </div>
+            ))}
           </div>
         </div>
+        <div className={styles.cardFooter}>
+          <hr />
+          <span className={styles.status}>
+            <IoCheckmarkCircle style={{ marginRight: "8px" }} />
+            {pedido.status || "Pedido a caminho"}
+          </span>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p>Você ainda não tem pedidos.</p>
+  )}
+
+   {pedidos.length > 0 && (
+    <button className={styles.limparPedidos} onClick={handleClearPedidos}>
+      Limpar meus pedidos
+    </button>
+  )}
+</div>
 
         <h3 className={styles.tituloSecao}>Alterações:</h3>
 
