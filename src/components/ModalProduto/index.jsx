@@ -11,26 +11,46 @@ export default function ModalProduto({ produto, quiosque, onClose }) {
       <div className={styles.modal}>
         <button className={styles.close} onClick={onClose}>×</button>
 
-        <div className={styles.header}>CAMARÃO</div>
+        {/* Nome do prato */}
+        <div className={styles.header}>{produto.nome}</div>
 
         <div className={styles.content}>
-          <img src={produto.img} alt={produto.title} className={styles.image} />
+          {/* Imagem do prato */}
+          {produto.imagem ? (
+            <img src={produto.imagem} alt={produto.nome} className={styles.image} />
+          ) : (
+            <img src="/bannerpadrao.png" alt="Imagem padrão" className={styles.image} />
+          )}
 
           <div className={styles.details}>
             <div className={styles.infoBox}>
-               
-              <p><IoStorefrontOutline size={20} color="#8F2929" style={{ marginRight: '8px',}}/><strong>{quiosque.nome}</strong></p>
-              <p>1,6 KM • {quiosque.tempo}</p>
-              <p>Taxa de envio: <span>{quiosque.entrega}</span></p>
+              <p>
+                <IoStorefrontOutline size={20} color="#8F2929" style={{ marginRight: "8px" }} />
+                <strong>{quiosque.nome}</strong>
+              </p>
+              <p>1,6 KM • {quiosque.tempo || "45-55 MIN"}</p>
+              <p>Taxa de envio: <span>{quiosque.entrega || "Grátis"}</span></p>
               <div className={styles.rating}>
-                <AiFillStar color="orange" /> <p>{quiosque.avaliacao}</p>
+                <AiFillStar color="orange" /> <p>{quiosque.avaliacao || "4.5"}</p>
               </div>
             </div>
 
-            <p className={styles.descricao}>Descrição....................................</p>
+            {/* Descrição do prato */}
+            <p className={styles.descricao}>
+              {produto.descricao || "Sem descrição disponível"}
+            </p>
 
+            {/* Botão de adicionar ao carrinho */}
             <button className={styles.addButton}>Adicionar ao carrinho</button>
-            <p className={styles.total}>Total: R$ {produto.price}</p>
+
+            {/* Preço formatado */}
+            <p className={styles.total}>
+              Total:{" "}
+              {Number(produto.preco).toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
           </div>
         </div>
       </div>
