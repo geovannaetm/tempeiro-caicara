@@ -97,7 +97,7 @@ export default function Topo() {
 
             {abrirDropdown && (
               <div className={styles.dropdownMenu}>
-                <Link href="/cardapio/prato-feito">Prato Feito</Link>
+                <Link href="/cardapio/pratofeito">Prato Feito</Link>
                 <Link href="/cardapio/camarao">Camarão</Link>
                 <Link href="/cardapio/bebidas">Bebidas</Link>
                 <Link href="/cardapio/peixes">Peixes</Link>

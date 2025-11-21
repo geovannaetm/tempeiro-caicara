@@ -50,9 +50,17 @@ export default function PaginaCategoria() {
             const pratos = await resPratos.json();
 
            
-            const filtrados = pratos.filter(
-              (p) => slugify(p.categoria) === slug
-            );
+            const filtrados = pratos.filter((p) => {
+              const cat = slugify(p.categoria);
+
+              const normalizeSegments = (s) =>
+                s
+                  .split("-")
+                  .map((seg) => (seg.endsWith("s") ? seg.slice(0, -1) : seg))
+                  .join("-");
+
+              return cat === slug || normalizeSegments(cat) === normalizeSegments(slug);
+            });
 
             return { ...est, produtos: filtrados };
           })
