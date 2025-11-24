@@ -146,3 +146,18 @@
   font-weight: bold;
   color: #28a745;
 }
+
+.nenhumprato{
+  font-family: var(--ff-poppins);
+  font-weight: 600;
+  font-size: 2.0rem;
+  color: #555;
+  text-align: center;
+}
+.carregando{
+  font-family: var(--ff-poppins);
+  font-weight: 600;
+  font-size: 2.0rem;
+  color: #8F2929;
+  text-align: center;
+}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import styles from './cadastro.module.css';
 import Topo from '@/components/Topo';
 import { useRouter } from 'next/navigation';
+import { toast } from "react-toastify";
 
 export default function Cadastro() {
   const router = useRouter();
@@ -22,12 +23,12 @@ export default function Cadastro() {
 
     // Validação: não permitir campos vazios
     if (!formData.name || !formData.email || !formData.pass) {
-      return alert('Preencha todos os campos antes de continuar!');
+      return toast.info('Preencha todos os campos antes de continuar!');
     }
 
     // Salva dados básicos temporários
     localStorage.setItem('tempUser', JSON.stringify(formData));
-    alert('Cadastro básico concluído!');
+    toast.success('Cadastro básico concluído!');
     router.push('/cadastrolocal');
   }
 

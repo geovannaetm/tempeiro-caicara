@@ -97,19 +97,29 @@ export default function Topo() {
 
             {abrirDropdown && (
               <div className={styles.dropdownMenu}>
-                <Link href="/cardapio/pratofeito">Prato Feito</Link>
-                <Link href="/cardapio/camarao">Camarão</Link>
-                <Link href="/cardapio/bebidas">Bebidas</Link>
-                <Link href="/cardapio/peixes">Peixes</Link>
-                <Link href="/cardapio/porcoes">Porções</Link>
-                <Link href="/cardapio/sorvetes">Sorvetes</Link>
-                <Link href="/cardapio/acai">Açaí</Link>
+                {[
+                  { slug: "pratofeito", label: "Prato Feito" },
+                  { slug: "camarao", label: "Camarão" },
+                  { slug: "bebidas", label: "Bebidas" },
+                  { slug: "peixes", label: "Peixes" },
+                  { slug: "porcoes", label: "Porções" },
+                  { slug: "sorvetes", label: "Sorvetes" },
+                  { slug: "acai", label: "Açaí" },
+                ].map((item) => (
+                  <Link key={item.slug} href={`/camaraopage/${item.slug}`}>
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
-          <Link href="#parceiros" className={styles.none}>PARCERIAS</Link>
+          <Link href="#parceiros" className={styles.none}>
+            PARCERIAS
+          </Link>
           <Link href="#contato">SOBRE NÓS</Link>
-          <Link href="#trabalheconosco" className={styles.none}>TRABALHE CONOSCO</Link>
+          <Link href="#trabalheconosco" className={styles.none}>
+            TRABALHE CONOSCO
+          </Link>
           <Link href="#contato">CONTATO</Link>
         </div>
       </div>

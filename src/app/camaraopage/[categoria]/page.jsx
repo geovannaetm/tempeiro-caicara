@@ -90,9 +90,9 @@ export default function PaginaCategoria() {
       </section>
 
       {loading ? (
-        <p>Carregando...</p>
+        <p className={styles.carregando}>Carregando...</p>
       ) : estabelecimentos.length === 0 ? (
-        <p>Nenhum prato de {categoria.nome.toLowerCase()} encontrado.</p>
+        <p className={styles.nenhumprato}>Nenhum prato de {categoria.nome.toLowerCase()} encontrado.</p>
       ) : (
         estabelecimentos.map((q) => (
           <CardQuiosque key={q.id} data={q} onOpenModal={handleOpenModal} />

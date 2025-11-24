@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CarrinhoContext = createContext();
 
@@ -50,7 +51,7 @@ export function CarrinhoProvider({ children }) {
   const adicionarItem = async (produto) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("Você precisa estar logado para adicionar produtos ao carrinho.");
+      toast.warning("Você precisa estar logado para adicionar produtos ao carrinho.");
       return;
     }
     if (!cartId) return;

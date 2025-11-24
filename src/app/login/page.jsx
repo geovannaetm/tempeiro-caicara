@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Topo from '@/components/Topo';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from "react-toastify";
+
 
 export default function Login() {
   const router = useRouter();
@@ -21,7 +23,7 @@ async function handleSubmit(e) {
   e.preventDefault();
 
   if (!formData.email || !formData.pass) {
-    return alert('Preencha todos os campos antes de continuar!');
+    return toast.info('Preencha todos os campos antes de continuar!');
   }
 
   try {
@@ -45,7 +47,7 @@ async function handleSubmit(e) {
     localStorage.setItem('tipoUser', data.tipoUser);
     localStorage.setItem('userId', data.profile.id);
 
-    alert('Login realizado com sucesso!');
+    toast.success('Login realizado com sucesso!');
 
     // Redireciona com base no tipo de usuário
     if (data.tipoUser === 'user') {
@@ -54,7 +56,7 @@ async function handleSubmit(e) {
       router.push('/parceiroadm'); 
     }
   } catch (error) {
-    alert('Erro: ' + error.message);
+    toast.error('Erro: ' + error.message);
   }
 }
 

@@ -4,6 +4,7 @@ import styles from "./Carrinho.module.css";
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { toast } from "react-toastify";
 
 export default function CarrinhoSidebar({ aberto, onClose }) {
   const { itens, removerItem, atualizarQuantidade, cartId, limparCarrinho } = useCarrinho();
@@ -17,7 +18,7 @@ export default function CarrinhoSidebar({ aberto, onClose }) {
   async function handleFinalizar() {
     const token = localStorage.getItem("token");
     if (!token || !cartId) {
-      alert("Você precisa estar logado para finalizar.");
+      toast.warning("Você precisa estar logado para finalizar.");
       return;
     }
 
@@ -29,11 +30,11 @@ export default function CarrinhoSidebar({ aberto, onClose }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Erro ao criar pedido");
 
-      alert("Pedido criado com sucesso!");
+      toast.success("Pedido criado com sucesso!");
       limparCarrinho(); 
       onClose();       
     } catch (err) {
-      alert("Erro: " + err.message);
+      toast.error("Erro: " + err.message);
     }
   }
 

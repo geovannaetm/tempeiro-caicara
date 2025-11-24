@@ -5,6 +5,9 @@ import styles from './cadastroparceiro2.module.css';
 import Topo from '@/components/Topo';
 import { useRouter } from 'next/navigation';
 import { FaExclamationCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
+
+
 
 export default function Cadastro() {
   const router = useRouter();
@@ -18,7 +21,7 @@ export default function Cadastro() {
   useEffect(() => {
     const email = localStorage.getItem("admEmail");
     if (!email) {
-      alert("E-mail não encontrado. Volte e preencha novamente.");
+      toast.warning("E-mail não encontrado. Volte e preencha novamente.");
       router.push("/trabalharconosco");
     } else {
       setFormData((prev) => ({ ...prev, email }));
@@ -43,11 +46,11 @@ export default function Cadastro() {
 
       if (!response.ok) throw new Error(data.error || "Erro ao cadastrar");
 
-      alert("Cadastro de parceiro realizado com sucesso!");
+      toast.success("Cadastro de parceiro realizado com sucesso!");
       localStorage.removeItem("admEmail");
       router.push("/login");
     } catch (error) {
-      alert("Erro: " + error.message);
+      toast.error("Erro: " + error.message);
     }
   };
 

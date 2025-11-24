@@ -1,6 +1,8 @@
 import Topo from "@/components/Topo";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { CarrinhoProvider } from "@/context/CarrinhoContext";
+import { ToastContainer } from "react-toastify";
 
 
 export const metadata = {
@@ -14,6 +16,15 @@ export default function RootLayout({ children }) {
       <body>
         <CarrinhoProvider>
         {children}
+        <ToastContainer
+            position="top-center"
+             autoClose={3000}         // ❌ sem tempo automático
+  hideProgressBar={true}    // ❌ sem barra de tempo
+  closeOnClick
+  pauseOnHover
+  draggable={false}
+  theme="light" 
+          />
         </CarrinhoProvider>
       </body>
     </html>

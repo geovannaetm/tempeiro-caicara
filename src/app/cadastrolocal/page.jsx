@@ -5,6 +5,8 @@ import { useState } from 'react';
 import styles from './cadastrolocal.module.css';
 import Topo from '@/components/Topo';
 import { CiLocationOn } from "react-icons/ci";
+import { toast } from "react-toastify";
+
 
 export default function CadastroLocal() {
   const router = useRouter();
@@ -23,12 +25,12 @@ export default function CadastroLocal() {
 
     // Validação: não permitir campos vazios
     if (!location.bairro || !location.rua || !location.numero) {
-      return alert('Preencha todos os campos antes de finalizar!');
+      return toast.info('Preencha todos os campos antes de finalizar!');
     }
 
     const tempUser = JSON.parse(localStorage.getItem('tempUser'));
     if (!tempUser) {
-      alert('Erro: dados básicos não encontrados. Refaça o cadastro.');
+      toast.error('Erro: dados básicos não encontrados. Refaça o cadastro.');
       return router.push('/cadastro');
     }
 
@@ -48,11 +50,11 @@ export default function CadastroLocal() {
         throw new Error(data.error || 'Erro ao cadastrar');
       }
 
-      alert('Cadastro finalizado com sucesso!');
+      toast.success('Cadastro finalizado com sucesso!');
       localStorage.removeItem('tempUser');
       router.push('/login');
     } catch (error) {
-      alert('Erro: ' + error.message);
+      toast.error('Erro: ' + error.message);
     }
   }
 

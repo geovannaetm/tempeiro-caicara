@@ -7,6 +7,7 @@ import { FaEdit, FaTrash, FaRegEdit } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
 import Topo from "@/components/Topo";
 import Rodape from "@/components/Rodape";
+import { toast } from "react-toastify";
 
 const readFileAsDataURL = (file) =>
   new Promise((res, rej) => {
@@ -98,7 +99,7 @@ export default function ParceiroAdm() {
       setCover(e.cover_url || "");
     }
 
-    alert("Dados salvos com sucesso!");
+    toast.success("Dados salvos com sucesso!");
   };
 
   const onLogoChange = async (e) => {
@@ -184,7 +185,7 @@ export default function ParceiroAdm() {
     setPratos(data);
     setDestaques(data.filter((p) => p.destaque === 1));
 
-    alert("Prato salvo com sucesso.");
+    toast.success("Prato salvo com sucesso.");
     closeAddPrato();
   };
 
@@ -476,12 +477,12 @@ export default function ParceiroAdm() {
               method: "DELETE",
             });
 
-            alert("Estabelecimento e pratos excluídos com sucesso!");
+            toast.success("Estabelecimento e pratos excluídos com sucesso!");
             localStorage.removeItem("userId");
             window.location.href = "/login";
           } catch (error) {
             console.error("Erro ao excluir:", error);
-            alert("Erro ao excluir estabelecimento.");
+            toast.error("Erro ao excluir estabelecimento.");
           }
         }}
       >

@@ -17,6 +17,7 @@ import {
   IoRefreshCircleOutline,
 } from "react-icons/io5";
 import { useCarrinho } from "@/context/CarrinhoContext";
+import { toast } from "react-toastify";
 
 export default function UserPage() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function UserPage() {
 
   useEffect(() => {
     if (!userId) {
-      alert("Você precisa estar logado.");
+      toast.warning("Você precisa estar logado.");
       router.push("/login");
       return;
     }
@@ -58,7 +59,7 @@ export default function UserPage() {
           pagamento: "Débito",
         });
       } catch (error) {
-        alert("Erro: " + error.message);
+        toast.error("Erro: " + error.message);
       }
     }
 
@@ -73,7 +74,7 @@ export default function UserPage() {
       if (!res.ok) throw new Error(data.message || "Erro ao buscar pedidos");
       setPedidos(data);
     } catch (err) {
-      alert("Erro ao carregar pedidos: " + err.message);
+      toast.error("Erro ao carregar pedidos: " + err.message);
     }
   }
 
@@ -97,10 +98,10 @@ export default function UserPage() {
     });
 
     if (!res.ok) throw new Error("Erro ao limpar pedidos");
-    alert("Pedidos limpos com sucesso!");
+    toast.success("Pedidos limpos com sucesso!");
     setPedidos([]); 
   } catch (err) {
-    alert("Erro: " + err.message);
+    toast.error("Erro: " + err.message);
   }
 };
 
@@ -127,9 +128,9 @@ export default function UserPage() {
 
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Erro ao atualizar");
-      alert("Dados atualizados com sucesso!");
+      toast.info("Dados atualizados com sucesso!");
     } catch (error) {
-      alert("Erro: " + error.message);
+      toast.error("Erro: " + error.message);
     }
   };
 
@@ -143,12 +144,12 @@ export default function UserPage() {
       });
 
       if (!response.ok) throw new Error("Erro ao excluir conta");
-      alert("Conta excluída com sucesso!");
+      toast.success("Conta excluída com sucesso!");
       localStorage.removeItem("userId");
       limparCarrinho(); 
       router.push("/cadastro");
     } catch (error) {
-      alert("Erro: " + error.message);
+      toast.error("Erro: " + error.message);
     }
   };
 
@@ -210,7 +211,7 @@ export default function UserPage() {
       </div>
     ))
   ) : (
-    <p>Você ainda não tem pedidos.</p>
+    <p className={styles.sempedidos}>Você ainda não tem pedidos.</p>
   )}
 
    {pedidos.length > 0 && (

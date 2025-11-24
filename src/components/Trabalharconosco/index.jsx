@@ -5,6 +5,7 @@ import styles from './Trabalharconosco.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { IoFishOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 export default function Trabalharconosco() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Trabalharconosco() {
 
   const handleClick = () => {
     if (!email) {
-      alert("Por favor, insira um e-mail.");
+      toast.warning("Por favor, insira um e-mail.");
       return;
     }
     localStorage.setItem("admEmail", email);

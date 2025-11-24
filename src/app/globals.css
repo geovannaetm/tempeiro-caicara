@@ -171,3 +171,49 @@ section{
 ::-webkit-scrollbar-thumb:hover {
     background-color: #1d4557;
 }
+
+/* Estilos personalizados para Toastify */
+.Toastify__toast {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 6px !important;
+  font-family: var(--ff-poppins) !important;
+  font-size: 17px;
+  padding: 14px 18px !important;
+  transition: all 0.3s ease-in-out !important;
+  min-height: auto !important;
+}
+
+/* Corpo do toast */
+.Toastify__toast-body {
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+/* Ícone */
+.Toastify__toast-icon {
+  color: inherit !important;
+}
+
+/* Sucesso: verde claro */
+.Toastify__toast--success {
+  background-color: #258a3c !important;
+  color: #ffffff !important;
+}
+
+/* Erro: vermelho claro */
+.Toastify__toast--error {
+  background-color: #721c24 !important;
+  color: #ffffff !important;
+}
+
+/* Info: azul escuro */
+.Toastify__toast--info {
+  background-color: #1f5670 !important;
+  color: #ffffff !important;
+}
+
+/* Warning: laranja claro */
+.Toastify__toast--warning {
+  background-color: #B3920B !important;
+  color: #ffffff !important;
+}
