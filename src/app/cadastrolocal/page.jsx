@@ -50,7 +50,7 @@ export default function CadastroLocal() {
 
       alert('Cadastro finalizado com sucesso!');
       localStorage.removeItem('tempUser');
-      router.push('/userpage');
+      router.push('/login');
     } catch (error) {
       alert('Erro: ' + error.message);
     }
