@@ -38,7 +38,8 @@ export default function ParceiroAdm() {
   });
   const [pratos, setPratos] = useState([]);
   const [pedidosCount, setPedidosCount] = useState(0);
-  const pedidoSimulado = { valor: 50.0 };
+  const [faturamento, setFaturamento] = useState(0);
+  
 
   const id = typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
@@ -208,9 +209,24 @@ export default function ParceiroAdm() {
     setDestaques(data.filter((p) => p.destaque === 1));
   };
 
-  const simularPedido = () => {
-    setPedidosCount((p) => p + 1);
-  };
+  if (estabelecimentoId) {
+  fetch(`http://localhost:3333/api/estabelecimentos/${estabelecimentoId}/pedidos`)
+    .then((res) => res.json())
+    .then((data) => {
+      setPedidosCount(data.length);
+
+      const total = data.reduce((acc, pedido) => {
+        const valorPedido = pedido.order_has_pratos.reduce(
+          (sum, item) => sum + parseFloat(item.pratos.preco) * item.quantidade,
+          0
+        );
+        return acc + valorPedido;
+      }, 0);
+
+      setFaturamento(total);
+    })
+    .catch((err) => console.error("Erro ao buscar pedidos:", err));
+}
 
 
   return (
@@ -311,25 +327,25 @@ export default function ParceiroAdm() {
       </div>
 
       {/* Insights */}
-      <div className={styles.section}>
-        <h3 className={styles.titleinsight}>Veja o insight da sua loja</h3>
-        <div className={styles.insightsRow}>
-          <div className={styles.insightCard}>
-            <p>Pedidos</p>
-            <strong>{pedidosCount}</strong>
-          </div>
-          <div className={styles.insightCard}>
-            <p>Faturamento estimado</p>
-            <strong>R$ {(pedidosCount * pedidoSimulado.valor).toFixed(2)}</strong>
-          </div>
-          <div className={styles.insightCard}>
-            <p>Adicionar prato</p>
-            <button className={styles.addPratoBtn} onClick={openAddPrato}>
-              <FiPlusCircle size={18} /> Novo prato
-            </button>
-          </div>
-        </div>
-      </div>
+<div className={styles.section}>
+  <h3 className={styles.titleinsight}>Veja o insight da sua loja</h3>
+  <div className={styles.insightsRow}>
+    <div className={styles.insightCard}>
+      <p>Pedidos</p>
+      <strong>{pedidosCount}</strong>
+    </div>
+    <div className={styles.insightCard}>
+      <p>Faturamento estimado</p>
+      <strong>R$ {faturamento.toFixed(2)}</strong>
+    </div>
+    <div className={styles.insightCard}>
+      <p>Adicionar prato</p>
+      <button className={styles.addPratoBtn} onClick={openAddPrato}>
+        <FiPlusCircle size={18} /> Novo prato
+      </button>
+    </div>
+  </div>
+</div>
 
       {/* Lista de pratos */}
       <div className={styles.section}>
